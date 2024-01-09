@@ -1,5 +1,13 @@
 const path = './data.json';
 var audio = new Audio('./resources/music.mp3');
+function fade() {
+    if (audio.volume > 0) {
+        audio.volume -= 0.1;
+        setTimeout(fade, 2);
+    } else {
+        audio.pause();
+    }
+}
 const REWARD_MESSAGES = [
     "Giải Khuyến khích",
     "Giải Ba",
@@ -72,8 +80,7 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 $('#modal-container').click(function () {
     $(this).addClass('out');
     $('body').removeClass('modal-active');
-    audio.pause();
-    audio.currentTime = 0;
+    fade()
 });
 
 
@@ -105,7 +112,8 @@ $(document).ready(function () {
 
         $('#modal-container').removeAttr('class').addClass('one');
         $('body').addClass('modal-active');
-
+        audio.volume=1
+        audio.currentTime = 0;
         audio.play();
     });
 
