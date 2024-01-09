@@ -1,5 +1,5 @@
 const path = './data.json';
-
+var audio = new Audio('./resources/music.mp3');
 const REWARD_MESSAGES = [
     "Giải Khuyến khích",
     "Giải Ba",
@@ -72,6 +72,8 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 $('#modal-container').click(function () {
     $(this).addClass('out');
     $('body').removeClass('modal-active');
+    audio.pause();
+    audio.currentTime = 0;
 });
 
 
@@ -94,6 +96,7 @@ $(document).ready(function () {
         await delay(2000)
 
 
+
         let result = rewardedMenberList.map(menber => `<li>congratulation to ${menber.Name} - ${menber.MNV} - ${menber.Department} ${message}</li>`).join('');
         $("#result").html(result);
 
@@ -102,6 +105,8 @@ $(document).ready(function () {
 
         $('#modal-container').removeAttr('class').addClass('one');
         $('body').addClass('modal-active');
+
+        audio.play();
     });
 
     $("#option-reward input").click(function () {
