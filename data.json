@@ -1,0 +1,727 @@
+[
+    {
+     "Name": "LÊ HIỆU HỮU",
+     "MNV": "80248",
+     "Year": 1994,
+     "Place": "Quảng Ngãi",
+     "Department": "Bộ phận Kho"
+    },
+    {
+     "Name": "THÁI THỊ HIẾU",
+     "MNV": "122560",
+     "Year": 1982,
+     "Place": "An Giang",
+     "Department": "Bộ phận Kho"
+    },
+    {
+     "Name": "ĐỖ VĂN TÌNH",
+     "MNV": "43282",
+     "Year": 1978,
+     "Place": "Thái Bình",
+     "Department": "Bộ phận Kho"
+    },
+    {
+     "Name": "ĐÀO THỊ HƯỜNG",
+     "MNV": "45765",
+     "Year": 1981,
+     "Place": "Hà Nam",
+     "Department": "Bộ phận Kho"
+    },
+    {
+     "Name": "LƯƠNG HỒNG MINH",
+     "MNV": "40757",
+     "Year": 1979,
+     "Place": "Ninh Bình",
+     "Department": "Bộ phận Kho"
+    },
+    {
+     "Name": "NGUYỄN THỊ THANH HUYỀN",
+     "MNV": "40637",
+     "Year": 1974,
+     "Place": "Nam Định",
+     "Department": "Bộ phận Kho"
+    },
+    {
+     "Name": "NGUYỄN TẤT THÁI",
+     "MNV": "43081",
+     "Year": 1984,
+     "Place": "Thừa Thiên Huế",
+     "Department": "Bộ phận Kho"
+    },
+    {
+     "Name": "NGUYỄN TUẤN LINH",
+     "MNV": "81860",
+     "Year": 1990,
+     "Place": "Cà Mau",
+     "Department": "Bộ phận Kho"
+    },
+    {
+     "Name": "TRỊNH TRỌNG HUY",
+     "MNV": "46102",
+     "Year": 1983,
+     "Place": "Thanh Hóa",
+     "Department": "Bộ phận Kho"
+    },
+    {
+     "Name": "UÔNG THỊ LÊ",
+     "MNV": "42856",
+     "Year": 1988,
+     "Place": "Hà Tĩnh",
+     "Department": "Bộ phận Kho"
+    },
+    {
+     "Name": "LÊ THANH SANG",
+     "MNV": "47886",
+     "Year": 1984,
+     "Place": "TP. Hồ Chí Minh",
+     "Department": "Bộ phận Kho"
+    },
+    {
+     "Name": "NGUYỄN THỊ XUYẾN",
+     "MNV": "83847",
+     "Year": 1996,
+     "Place": "Hà Tĩnh",
+     "Department": "Bộ phận Kho"
+    },
+    {
+     "Name": "TRẦN THỊ VIỆT",
+     "MNV": "41554",
+     "Year": 1983,
+     "Place": "Phú Yên",
+     "Department": "Bộ phận Kho"
+    },
+    {
+     "Name": "NGUYỄN VĂN DƯƠNG",
+     "MNV": "44526",
+     "Year": 1992,
+     "Place": "TP. Hồ Chí Minh",
+     "Department": "Bộ phận Kho"
+    },
+    {
+     "Name": "VÕ HOÀNG QUỐC TÚY",
+     "MNV": "92135",
+     "Year": 1995,
+     "Place": "Lâm Đồng",
+     "Department": "Bộ phận Kho"
+    },
+    {
+     "Name": "NGUYỄN THỊ LÝ",
+     "MNV": "77900",
+     "Year": 1987,
+     "Place": "Thanh Hóa",
+     "Department": "Bộ phận Giám Định và kiếm soát NPL"
+    },
+    {
+     "Name": "TRẦN THỊ BÍCH VÂN",
+     "MNV": "40453",
+     "Year": 1974,
+     "Place": "Nam Định",
+     "Department": "Bộ phận Giám Định và kiếm soát NPL"
+    },
+    {
+     "Name": "LÊ THỊ TRANG",
+     "MNV": "44665",
+     "Year": 1985,
+     "Place": "Đồng Nai",
+     "Department": "Bộ phận Giám Định và kiếm soát NPL"
+    },
+    {
+     "Name": "VÕ THỊ TẤN",
+     "MNV": "80294",
+     "Year": 1991,
+     "Place": "Bình Định",
+     "Department": "Bộ phận Giám Định và kiếm soát NPL"
+    },
+    {
+     "Name": "TRƯƠNG QUANG HIẾU",
+     "MNV": "82605",
+     "Year": 1983,
+     "Place": "TP. Hồ Chí Minh",
+     "Department": "Bộ phận Giám Định và kiếm soát NPL"
+    },
+    {
+     "Name": "HUỲNH MINH TRÍ",
+     "MNV": "84616",
+     "Year": 1980,
+     "Place": "TP. Hồ Chí Minh",
+     "Department": "Bộ phận IT"
+    },
+    {
+     "Name": "NGUYỄN THỊ THU THỦY",
+     "MNV": "111127",
+     "Year": 1998,
+     "Department": "Bộ phận IT"
+    },
+    {
+     "Name": "NGUYỄN QUỐC DŨNG",
+     "MNV": "89482",
+     "Year": 1995,
+     "Department": "Bộ phận IT"
+    },
+    {
+     "Name": "LÊ MINH HẰNG",
+     "MNV": "118478",
+     "Year": 1999,
+     "Department": "Bộ phận IT"
+    },
+    {
+     "Name": "NGUYỄN ĐỨC THUẬN",
+     "MNV": "8023709",
+     "Year": 1997,
+     "Place": "Tiền Giang",
+     "Department": "Bộ phận IT"
+    },
+    {
+     "Name": "NGUYỄN MINH TRƯỜNG",
+     "MNV": "114950",
+     "Year": 1998,
+     "Department": "Bộ phận IT"
+    },
+    {
+     "Name": "CAO TRẦN ĐĂNG KHOA",
+     "MNV": "73699",
+     "Year": 1988,
+     "Place": "TP. Hồ Chí Minh",
+     "Department": "Bộ phận IT"
+    },
+    {
+     "Name": "NGUYỄN VẠN HƯNG",
+     "MNV": "72282",
+     "Year": 1985,
+     "Place": "Quảng Ngãi",
+     "Department": "Bộ phận IT"
+    },
+    {
+     "Name": "HOÀNG THỊ HỒNG PHƯỢNG",
+     "MNV": "111125",
+     "Year": 1998,
+     "Department": "Bộ phận IT"
+    },
+    {
+     "Name": "BÙI QUANG TIẾN",
+     "MNV": "46854",
+     "Year": 1985,
+     "Place": "TP. Hồ Chí Minh",
+     "Department": "Bộ phận IT"
+    },
+    {
+     "Name": "NGUYỄN QUỐC HUỲNH",
+     "MNV": "121897",
+     "Year": 1997,
+     "Department": "Bộ phận IT"
+    },
+    {
+     "Name": "NGUYỄN THỊ BÍCH HẠNH",
+     "MNV": "43160",
+     "Year": 1981,
+     "Place": "TP. Hồ Chí Minh",
+     "Department": "Bộ phận IT"
+    },
+    {
+     "Name": "LƯƠNG THỊ NGỌC NGA",
+     "MNV": "121488",
+     "Year": 1995,
+     "Department": "Bộ phận IT"
+    },
+    {
+     "Name": "VÕ NGỌC TÂN",
+     "MNV": "84615",
+     "Year": 1979,
+     "Department": "Bộ phận IT"
+    },
+    {
+     "Name": "NGUYỄN KỲ PHONG",
+     "MNV": "74162",
+     "Year": 1987,
+     "Place": "TP. Hồ Chí Minh",
+     "Department": "Bộ phận IT"
+    },
+    {
+     "Name": "TRẦN VIỆT BẢO",
+     "MNV": "8024487",
+     "Year": 1993,
+     "Place": "Quảng Ngãi",
+     "Department": "Bộ phận IT"
+    },
+    {
+     "Name": "TRƯƠNG QUỐC HÙNG",
+     "MNV": "82412",
+     "Year": 1978,
+     "Place": "TP. Hồ Chí Minh",
+     "Department": "Bộ phận IT"
+    },
+    {
+     "Name": "NGUYỄN THỊ THỦY",
+     "MNV": "8023850",
+     "Year": 1989,
+     "Place": "Nghệ An",
+     "Department": "Bộ phận IT"
+    },
+    {
+     "Name": "TRẦN THỊ THANH NGA",
+     "MNV": "44690",
+     "Year": 1987,
+     "Place": "Lâm Đồng",
+     "Department": "Bộ phận IT"
+    },
+    {
+     "Name": "TRẦN QUỐC DƯỠNG",
+     "MNV": "104799",
+     "Year": 1993,
+     "Place": "Phú Yên",
+     "Department": "Bộ phận IT"
+    },
+    {
+     "Name": "UNG KHƯƠNG DUY",
+     "MNV": "98038",
+     "Year": 1991,
+     "Place": "Bình Dương",
+     "Department": "Bộ phận IT"
+    },
+    {
+     "Name": "VÕ ANH KHOA",
+     "MNV": "81007",
+     "Year": 1987,
+     "Place": "TP. Hồ Chí Minh",
+     "Department": "Bộ phận IT"
+    },
+    {
+     "Name": "PHAN THỊ CẢNH",
+     "MNV": "43498",
+     "Year": 1982,
+     "Place": "Hà Tĩnh",
+     "Department": "Phòng kế toán VTJ"
+    },
+    {
+     "Name": "TRẦN THỊ MỸ PHỐ",
+     "MNV": "8019902",
+     "Year": 1996,
+     "Department": "Phòng kế toán VTJ"
+    },
+    {
+     "Name": "PHAN THỊ HẰNG",
+     "MNV": "8005611",
+     "Year": 1989,
+     "Department": "Phòng kế toán VTJ"
+    },
+    {
+     "Name": "ĐỒNG THỊ VI",
+     "MNV": "83742",
+     "Year": 1993,
+     "Place": "Bình Định",
+     "Department": "Phòng kế toán VTJ"
+    },
+    {
+     "Name": "NGÔ THỊ HỒNG YẾN",
+     "MNV": "8019889",
+     "Year": 1988,
+     "Place": "Nam Định",
+     "Department": "Phòng kế toán VTJ"
+    },
+    {
+     "Name": "NGUYỄN THỊ KIM DUNG",
+     "MNV": "43903",
+     "Year": 1990,
+     "Place": "Hà Tĩnh",
+     "Department": "Phòng kế toán VTJ"
+    },
+    {
+     "Name": "NGUYỄN THỊ THANH NGA",
+     "MNV": "96523",
+     "Year": 1994,
+     "Place": "TP. Hồ Chí Minh",
+     "Department": "Phòng kế toán VTJ"
+    },
+    {
+     "Name": "ĐOÀN THỊ HỒNG PHÚC",
+     "MNV": "8007981",
+     "Year": 1991,
+     "Department": "Phòng kế toán VTJ"
+    },
+    {
+     "Name": "CHU THỊ HÀ",
+     "MNV": "117977",
+     "Year": 1987,
+     "Department": "Phòng Tài chính kế toán"
+    },
+    {
+     "Name": "KỲ THỊ ÁNH MINH",
+     "MNV": "41166",
+     "Year": 1987,
+     "Place": "TP. Hồ Chí Minh",
+     "Department": "Phòng Tài chính kế toán"
+    },
+    {
+     "Name": "NGUYỄN THỊ HUYỀN",
+     "MNV": "77183",
+     "Year": 1993,
+     "Place": "Nghệ An",
+     "Department": "Phòng Tài chính kế toán"
+    },
+    {
+     "Name": "NGUYỄN THỊ NGỌC HUYỀN",
+     "MNV": "110459",
+     "Year": 1997,
+     "Department": "Phòng Tài chính kế toán"
+    },
+    {
+     "Name": "ĐÀO THỊ LAN PHƯƠNG",
+     "MNV": "120941",
+     "Year": 1983,
+     "Department": "Phòng Tài chính kế toán"
+    },
+    {
+     "Name": "HÀ THỊ LAN",
+     "MNV": "40311",
+     "Year": 1986,
+     "Place": "Nam Định",
+     "Department": "Phòng Tài chính kế toán"
+    },
+    {
+     "Name": "NGUYỄN THỊ DUNG",
+     "MNV": "40312",
+     "Year": 1989,
+     "Place": "Nghệ An",
+     "Department": "Phòng Tài chính kế toán"
+    },
+    {
+     "Name": "NGUYỄN THỊ THU",
+     "MNV": "111103",
+     "Year": 1983,
+     "Department": "Phòng Tài chính kế toán"
+    },
+    {
+     "Name": "NGUYỄN THỊ GIANG",
+     "MNV": "42562",
+     "Year": 1988,
+     "Place": "Hà Tĩnh",
+     "Department": "Phòng Tài chính kế toán"
+    },
+    {
+     "Name": "NGUYỄN THỊ THU PHƯƠNG",
+     "MNV": "9016",
+     "Year": 1980,
+     "Place": "TP. Hồ Chí Minh",
+     "Department": "Phòng Tài chính kế toán"
+    },
+    {
+     "Name": "LƯƠNG THỊ NGỌC HẰNG",
+     "MNV": "105358",
+     "Year": 1988,
+     "Place": "Bình Định",
+     "Department": "Phòng Tài chính kế toán"
+    },
+    {
+     "Name": "TRƯƠNG THỊ MAI THANH THỦY",
+     "MNV": "46995",
+     "Year": 1979,
+     "Place": "TP. Hồ Chí Minh",
+     "Department": "Phòng Tài chính kế toán"
+    },
+    {
+     "Name": "NGUYỄN THỊ HOÀNG QUYÊN",
+     "MNV": "42857",
+     "Year": 1976,
+     "Place": "TP. Hồ Chí Minh",
+     "Department": "Phòng Tài chính kế toán"
+    },
+    {
+     "Name": "DƯƠNG THỊ BÍCH YẾN",
+     "MNV": "83172",
+     "Year": 1991,
+     "Place": "Bình Định",
+     "Department": "Phòng Tài chính kế toán"
+    },
+    {
+     "Name": "NGUYỄN THU HƯƠNG",
+     "MNV": "47060",
+     "Year": 1985,
+     "Place": "TP. Hồ Chí Minh",
+     "Department": "Phòng Tài chính kế toán"
+    },
+    {
+     "Name": "LÊ THỊ THU HUYỀN",
+     "MNV": "48795",
+     "Year": 1990,
+     "Place": "Thanh Hóa",
+     "Department": "Phòng Tài chính kế toán"
+    },
+    {
+     "Name": "HOÀNG THỊ THỦY",
+     "MNV": "42623",
+     "Year": 1987,
+     "Place": "Nghệ An",
+     "Department": "Phòng Tài chính kế toán"
+    },
+    {
+     "Name": "BÙI THỊ NGỌC",
+     "MNV": "50487",
+     "Year": 1990,
+     "Place": "Nam Định",
+     "Department": "Phòng Tài chính kế toán"
+    },
+    {
+     "Name": "NGUYỄN THỊ THANH HỒNG",
+     "MNV": "5987",
+     "Year": 1972,
+     "Place": "TP. Hải Phòng ",
+     "Department": "Phòng Tài chính kế toán"
+    },
+    {
+     "Name": "PHAN THỊ HƯỜNG",
+     "MNV": "83805",
+     "Year": 1984,
+     "Place": "Long An",
+     "Department": "Phòng Tài chính kế toán"
+    },
+    {
+     "Name": "TRẦN THỊ HỒNG HUỆ",
+     "MNV": "48796",
+     "Year": 1987,
+     "Place": "Nam Định",
+     "Department": "Phòng Tài chính kế toán"
+    },
+    {
+     "Name": "NGUYỄN THỊ TƯỜNG AN",
+     "MNV": 8022825,
+     "Year": 1996,
+     "Place": "Thanh Hóa",
+     "Department": "Phòng Tài chính kế toán"
+    },
+    {
+     "Name": "PHAN THỊ VĨNH TOÀN",
+     "MNV": "117499",
+     "Year": 1985,
+     "Department": "Phòng Xuất nhập khẩu"
+    },
+    {
+     "Name": "NGUYỄN THỊ HIỀN",
+     "MNV": "81006",
+     "Year": 1984,
+     "Place": "Hà Tĩnh",
+     "Department": "Phòng Xuất nhập khẩu"
+    },
+    {
+     "Name": "PHAN THỊ NA",
+     "MNV": "73657",
+     "Year": 1977,
+     "Place": "Đồng Nai",
+     "Department": "Phòng Xuất nhập khẩu"
+    },
+    {
+     "Name": "ĐỖ THU UYÊN",
+     "MNV": "8010678",
+     "Year": 1998,
+     "Place": "Tiền Giang",
+     "Department": "Phòng Xuất nhập khẩu"
+    },
+    {
+     "Name": "NGUYỄN VĂN SƠN",
+     "MNV": "120960",
+     "Year": 1999,
+     "Department": "Phòng Xuất nhập khẩu"
+    },
+    {
+     "Name": "LƯƠNG THỊ CHUNG",
+     "MNV": "120700",
+     "Year": 1986,
+     "Place": "TP. Hải Phòng ",
+     "Department": "Phòng Xuất nhập khẩu"
+    },
+    {
+     "Name": "NGUYỄN NGỌC VÂN ANH",
+     "MNV": "81935",
+     "Year": 1994,
+     "Place": "TP. Hồ Chí Minh",
+     "Department": "Phòng Xuất nhập khẩu"
+    },
+    {
+     "Name": "PHAN THỊ THU VÂN",
+     "MNV": "117934",
+     "Year": 1986,
+     "Department": "Phòng Xuất nhập khẩu"
+    },
+    {
+     "Name": "PHẠM THỊ MINH HUYỀN",
+     "MNV": "120980",
+     "Year": 1999,
+     "Department": "Phòng Xuất nhập khẩu"
+    },
+    {
+     "Name": "NGUYỄN QUỐC DŨNG",
+     "MNV": "40098",
+     "Year": 1977,
+     "Place": "TP. Hồ Chí Minh",
+     "Department": "Phòng Xuất nhập khẩu"
+    },
+    {
+     "Name": "MAI THỊ KIM NGÂN",
+     "MNV": "121487",
+     "Year": 1998,
+     "Department": "Phòng Xuất nhập khẩu"
+    },
+    {
+     "Name": "DƯƠNG THANH TUẤN",
+     "MNV": "45425",
+     "Year": 1990,
+     "Place": "Quảng Ngãi",
+     "Department": "Phòng Xuất nhập khẩu"
+    },
+    {
+     "Name": "HOÀNG NGUYỄN TỐ NHƯ",
+     "MNV": "8009259",
+     "Year": 1994,
+     "Department": "Phòng Xuất nhập khẩu"
+    },
+    {
+     "Name": "TRẦN NGUYỄN THÁI HÒA",
+     "MNV": "40241",
+     "Year": 1976,
+     "Place": "TP. Hồ Chí Minh",
+     "Department": "Phòng Xuất nhập khẩu"
+    },
+    {
+     "Name": "ĐOÀN NGUYỄN NGỌC ANH",
+     "MNV": "92982",
+     "Year": 1988,
+     "Place": "TP. Hồ Chí Minh",
+     "Department": "Phòng Xuất nhập khẩu"
+    },
+    {
+     "Name": "NGUYỄN VĂN HỮU PHƯỚC",
+     "MNV": "93040",
+     "Year": 1994,
+     "Place": "Tiền Giang",
+     "Department": "Phòng Xuất nhập khẩu"
+    },
+    {
+     "Name": "PHẠM THỊ NGỌC PHƯƠNG",
+     "MNV": "8008913",
+     "Year": 2000,
+     "Department": "Phòng Xuất nhập khẩu"
+    },
+    {
+     "Name": "TRẦN THỊ DIỆU HIỀN",
+     "MNV": "122077",
+     "Year": 2000,
+     "Department": "Phòng Xuất nhập khẩu"
+    },
+    {
+     "Name": "NGUYỄN THỊ KIM CHI",
+     "MNV": "8013888",
+     "Year": 1990,
+     "Place": "Long An",
+     "Department": "Phòng Xuất nhập khẩu"
+    },
+    {
+     "Name": "MẠCH THỊ MI",
+     "MNV": "8024701",
+     "Year": 2002,
+     "Place": "Phú Yên",
+     "Department": "Phòng Xuất nhập khẩu"
+    },
+    {
+     "Name": "PHẠM THỊ THANH THẾ",
+     "MNV": "85354",
+     "Year": 1985,
+     "Place": "Bình Định",
+     "Department": "Phòng Xuất nhập khẩu"
+    },
+    {
+     "Name": "TRẦN ĐÀO THU THANH",
+     "MNV": "8019035",
+     "Year": 1999,
+     "Place": "TP. Hồ Chí Minh",
+     "Department": "Phòng Xuất nhập khẩu"
+    },
+    {
+     "Name": "ĐÀO THỊ DIỄM THẮM",
+     "MNV": "44708",
+     "Year": 1990,
+     "Place": "Bình Định",
+     "Department": "Phòng Xuất nhập khẩu"
+    },
+    {
+     "Name": "PHẠM THỊ XUÂN MY",
+     "MNV": "8023775",
+     "Year": 2002,
+     "Place": "Quảng Ngãi",
+     "Department": "Phòng Xuất nhập khẩu"
+    },
+    {
+     "Name": "LÊ THỊ NGỌC LINH",
+     "MNV": "119102",
+     "Year": 1988,
+     "Place": "Lâm Đồng",
+     "Department": "Phòng Xuất nhập khẩu"
+    },
+    {
+     "Name": "TÔ KHẮC THIÊN",
+     "MNV": "86254",
+     "Year": 1987,
+     "Place": "Quảng Nam",
+     "Department": "Phòng Xuất nhập khẩu"
+    },
+    {
+     "Name": "TRẦN QUANG THÀNH",
+     "MNV": "40174",
+     "Year": 1981,
+     "Place": "TP. Hà Nội ",
+     "Department": "Phòng Xuất nhập khẩu"
+    },
+    {
+     "Name": "LÊ THỊ HỒNG",
+     "MNV": "46798",
+     "Year": 1977,
+     "Place": "Tiền Giang",
+     "Department": "Phòng Xuất nhập khẩu"
+    },
+    {
+     "Name": "LÊ THỊ THANH QUYÊN",
+     "MNV": "45544",
+     "Year": 1985,
+     "Place": "TP. Hồ Chí Minh",
+     "Department": "Phòng Xuất nhập khẩu"
+    },
+    {
+     "Name": "ĐINH MINH ĐĂNG",
+     "MNV": "8008489",
+     "Year": 1995,
+     "Place": "TP. Hồ Chí Minh",
+     "Department": "Phòng Xuất nhập khẩu"
+    },
+    {
+     "Name": "TRƯƠNG HOÀI NGỌC CHÂU",
+     "MNV": "41179",
+     "Year": 1980,
+     "Place": "Phú Yên",
+     "Department": "Phòng Xuất nhập khẩu"
+    },
+    {
+     "Name": "NGÔ THỊ MAI HƯƠNG",
+     "MNV": "114671",
+     "Year": 1998,
+     "Department": "Phòng Xuất nhập khẩu"
+    },
+    {
+     "Name": "ĐẶNG THỊ HỒNG UYÊN",
+     "MNV": "121246",
+     "Year": 1999,
+     "Place": "Đắk Lắk",
+     "Department": "Phòng Xuất nhập khẩu"
+    },
+    {
+     "Name": "PHAN THANH KHIẾT",
+     "MNV": "43455",
+     "Year": 1983,
+     "Place": "An Giang",
+     "Department": "Phòng Xuất nhập khẩu"
+    },
+    {
+     "Name": "NGUYỄN MINH PHƯỚC",
+     "MNV": "40720",
+     "Year": 1976,
+     "Place": "Tiền Giang",
+     "Department": "Phòng Xuất nhập khẩu"
+    }
+   ]
