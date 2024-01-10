@@ -105,15 +105,15 @@
   -ms-border-radius: 0.1em;
   -khtml-border-radius: 0.1em;
   border-radius: 0.1em;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #111111), color-stop(35%, #111111), color-stop(55%, #333333), color-stop(55%, #111111), color-stop(100%, #111111));
-  background-image: -webkit-linear-gradient(top, #111111 0%, #111111 35%, #333333 55%, #111111 55%, #111111 100%);
-  background-image: -moz-linear-gradient(top, #111111 0%, #111111 35%, #333333 55%, #111111 55%, #111111 100%);
-  background-image: -o-linear-gradient(top, #111111 0%, #111111 35%, #333333 55%, #111111 55%, #111111 100%);
-  background-image: -ms-linear-gradient(top, #111111 0%, #111111 35%, #333333 55%, #111111 55%, #111111 100%);
-  background-image: linear-gradient(top, #111111 0%, #111111 35%, #333333 55%, #111111 55%, #111111 100%);
-  background-color: #222222;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #2980b9), color-stop(35%, #2980b9), color-stop(55%, #3498db), color-stop(55%, #2980b9), color-stop(100%, #2980b9));
+  background-image: -webkit-linear-gradient(top, #2980b9 0%, #2980b9 35%, #3498db 55%, #2980b9 55%, #2980b9 100%);
+  background-image: -moz-linear-gradient(top, #2980b9 0%, #2980b9 35%, #3498db 55%, #2980b9 55%, #2980b9 100%);
+  background-image: -o-linear-gradient(top, #2980b9 0%, #2980b9 35%, #3498db 55%, #2980b9 55%, #2980b9 100%);
+  background-image: -ms-linear-gradient(top, #2980b9 0%, #2980b9 35%, #3498db 55%, #2980b9 55%, #2980b9 100%);
+  background-image: linear-gradient(top, #2980b9 0%, #2980b9 35%, #3498db 55%, #2980b9 55%, #2980b9 100%);
+  background-color: #3498db;
   padding: 0 0.15em;
-  color: white;
+  color: #e74c3c;
 }
 .odometer.odometer-auto-theme .odometer-digit, .odometer.odometer-theme-train-station .odometer-digit {
   *display: inline;

@@ -1,12 +1,7 @@
 const path = './data.json';
 var audio = new Audio('./resources/music.mp3');
 function fade() {
-    if (audio.volume > 0) {
-        audio.volume -= 0.1;
-        setTimeout(fade, 2);
-    } else {
-        audio.pause();
-    }
+    audio.pause();
 }
 const REWARD_MESSAGES = [
     "Giải Khuyến khích",
@@ -16,7 +11,7 @@ const REWARD_MESSAGES = [
     "Giải Đặc Biệt",
     "Giải Chơi Một Mình",
 ]
-let message = "Giải thưởng" //REWARD_MESSAGES[0]
+let message = REWARD_MESSAGES[0]
 
 let members = []
 let rewardedMenberList = [];
@@ -36,7 +31,7 @@ async function fetchApi() {
     try {
         const response = await fetch("https://lottery.ginjs.click/")
         const data = await response.json()
-        rs = parseInt(data)/100.0
+        rs = parseInt(data) / 100.0
 
     } catch (e) {
         throw e
@@ -108,16 +103,16 @@ $(document).ready(function () {
         rewardedMenberList.push(selectedMenber)
 
         setOdometer(0)
-        await delay(1000)
-        setOdometer(9999999)
-        await delay(1500)
-        setOdometer(5555555)
-        await delay(1500)
-        setOdometer(9999999)
-        await delay(1500)
-        setOdometer(0)
-        await delay(1500)
-        setOdometer(5555555)
+        // await delay(1000)
+        // setOdometer(9999999)
+        // await delay(1500)
+        // setOdometer(5555555)
+        // await delay(1500)
+        // setOdometer(9999999)
+        // await delay(1500)
+        // setOdometer(0)
+        // await delay(1500)
+        // setOdometer(5555555)
         await delay(1500)
 
         setOdometer(selectedMenber.MNV)
@@ -126,18 +121,40 @@ $(document).ready(function () {
 
 
 
-        let result = rewardedMenberList.map(menber => `<li>congratulation to ${menber.Name} - ${menber.MNV} - ${menber.Department} ${message}</li>`).join('');
+        setReward(selectedMenber);
+
+    });
+
+    async function setReward(selectedMenber) {
+        let result = rewardedMenberList.map(menber => `<li>${message}: ${menber.Name} - ${menber.MNV} - ${menber.Department} </li>`).join('');
         $("#result").html(result);
 
         $('#modal-text').html(`Congratulations to ${selectedMenber.Name} - ${selectedMenber.MNV} - ${selectedMenber.Department}!`);
         $('#modal-p').html(`Bạn đã nhận được ${message}`);
 
+        const l = `./images/${selectedMenber.MNV}.png`
+        try {
+            var c = await fetch(l)
+            if(c.ok)
+                $('#avatar').attr('src', l)
+            else
+                throw c
+        }
+        catch (e) {
+            $('#avatar').attr('src', './resources/fatcat.gif')
+            console.log(e)
+        }
+
+
+
+
         $('#modal-container').removeAttr('class').addClass('one');
-        $('body').addClass('modal-active');
-        audio.volume = 1
+        $('body').addClass('modal-active'); 0;
+
+        audio.volume = 1;
         audio.currentTime = 0;
         audio.play();
-    });
+    }
 
     $("#option-reward input").click(function () {
         $(this).attr('checked', 'true');

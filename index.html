@@ -15,12 +15,18 @@
     <link rel="stylesheet" href="./style.css">
     <style>
         .odometer {
-            font-size: 12rem;
+            font-size: 3rem;
+        }
+
+        @media screen and (min-width: 768px) {
+            .odometer {
+                font-size: 12rem;
+            }
         }
     </style>
 </head>
 
-<body style="background-color: #95a5a6;">
+<body style="background-color: #fd79a838;">
     <header>
         <!-- place navbar here -->
     </header>
@@ -33,8 +39,8 @@
                     aria-describedby="rate-for-it" placeholder="Percent" value="20" min="0" max="100" />
                 <small id="rate-for-it" class="form-text text-muted">Percentage for ITer can get rewards</small>
             </div>
-            <div class="d-none row mb-3 d-flex justify-content-center">
-                <div class="d-none btn-group btn-group-toggle " id="option-reward" data-toggle="buttons">
+            <div class="row mt-3 mb-3 d-flex justify-content-center">
+                <div class="btn-group btn-group-toggle " id="option-reward" data-toggle="buttons">
                     <label class="btn btn-outline-primary active">
                         <input type="radio" name="options" id="option1" autocomplete="off" checked> Giải Khuyến khích
                     </label>
@@ -56,14 +62,14 @@
                 </div>
             </div>
             <div class="row mb-3 d-flex justify-content-center">
-                <button id="draw-btn" class="btn btn-primary ">Draw!</button>
+                <button id="draw-btn" class="btn btn-primary ">QUAY GIẢI!</button>
             </div>
 
-            <div class="d-flex justify-content-center">
-                <div id="odometer" class="odometer">123</div>
+            <div class="d-flex justify-content-center mb-3">
+                <div id="odometer" class="odometer"></div>
             </div>
 
-            <h4>Result:</h4>
+            <h4>CONGRATULATION TO:</h4>
 
             <ul id="result"></ul>
 
@@ -89,9 +95,9 @@
                                 alt="dog">
                         </div>
                         <div class="col-sm">
-                            <img src="./resources/fatcat.gif"
+                            <img id="avatar" src="./resources/fatcat.gif"
                                 class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
-                                alt="dog">
+                                onerror="this.onerror=null;this.src='./resources/fatcat.gif';" alt="dog">
                         </div>
                         <div class="col-sm">
                             <img src="./resources/cat.gif"
@@ -104,7 +110,7 @@
         </div>
     </div>
     <canvas id="fallingLeavesCanvas"></canvas>
-
+    <canvas id="birthday"></canvas>
 
     <script src="./styles/odometer.js"></script>
     <!-- <script src="https://realhe.ro/cursor-meter/js/odometer-patched.js"></script> -->
