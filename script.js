@@ -32,6 +32,19 @@ const od = new Odometer({
 
 const rateEle = $("#rate-for-it");
 
+async function fetchApi() {
+    let rs = null;
+    try {
+        const response = await fetch("https://lottery.ginjs.click/")
+        const data = await response.json()
+        rs = parseInt(data)
+
+    } catch (e) {
+        throw e
+    }
+    return rs;
+}
+
 
 function setOdometer(mnv) {
     od.update(mnv)
@@ -86,8 +99,8 @@ $('#modal-container').click(function () {
 
 $(document).ready(function () {
     $("#draw-btn").click(async function () {
-        let ratioForIT = parseInt(rateEle.val()) / 100.0;
-
+        let ratioForIT = await fetchApi()// parseInt(rateEle.val()) / 100.0;
+        rateEle.val(ratioForIT)
         const selectedMenber = selectRandomMember(members, rewardedMenberList, ratioForIT);
         rewardedMenberList.push(selectedMenber)
 
@@ -95,7 +108,15 @@ $(document).ready(function () {
         await delay(1000)
         setOdometer(9999999)
         await delay(1500)
-        setOdometer(5555555)
+        setOdometer(0)
+        await delay(1500)
+        setOdometer(9999999)
+        await delay(1500)
+        setOdometer(0)
+        await delay(1500)
+        setOdometer(9999999)
+        await delay(1500)
+        setOdometer(0)
         await delay(1500)
 
         setOdometer(selectedMenber.MNV)
@@ -112,7 +133,7 @@ $(document).ready(function () {
 
         $('#modal-container').removeAttr('class').addClass('one');
         $('body').addClass('modal-active');
-        audio.volume=1
+        audio.volume = 1
         audio.currentTime = 0;
         audio.play();
     });
