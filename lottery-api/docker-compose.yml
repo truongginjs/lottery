@@ -8,6 +8,15 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
-    ports:
-      - 80:80
-      - 443:443
+    container_name: lotteryapi
+    environment:
+      VIRTUAL_HOST: lottery.ginjs.click
+      LETSENCRYPT_HOST: lottery.ginjs.click
+    restart: always
+    networks:
+      - proxy
+
+networks:
+ proxy:
+    name: nginx-network
+    external: true

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "G1fh+jyEGIMBwS/TvzMEspMVBXfhFe7T4P5nGwWmTewjLDcYFWsnwzN5XJlCf2mtC4zIsr26aIh7ykzimu5zTg==",
+  "dgSpecHash": "VFOeOjSIhFBsAZsy/afBZ8H6zlnFtkA3E5+hSmFHx0Nhbm/R2KX/PxT4dUbD9aK89vEXv9ggz98IcBm7yKntvw==",
   "success": true,
-  "projectFilePath": "/Users/itppj/Projects/lottery/lottery-api/lottery-api.csproj",
+  "projectFilePath": "/Users/itppj/Projects/lottery/lottery/lottery-api/lottery-api.csproj",
   "expectedPackageFiles": [
     "/Users/itppj/.nuget/packages/microsoft.aspnetcore.openapi/8.0.0/microsoft.aspnetcore.openapi.8.0.0.nupkg.sha512",
     "/Users/itppj/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
