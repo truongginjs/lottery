@@ -99,8 +99,7 @@ $(document).ready(function () {
         console.log(code)
         if (code == 'Space') {
             e.preventDefault();
-            if($('body').hasClass('modal-active'))
-            {
+            if ($('body').hasClass('modal-active')) {
                 $('#modal-container').trigger('click')
                 return;
             }
@@ -122,7 +121,7 @@ $(document).ready(function () {
         if (code.startsWith('Digit')) {
             e.preventDefault();
             const k = parseInt(code.slice(-1))
-            if(k<6){
+            if (k < 6) {
                 $(`#option-reward input#option${k}`).trigger('click')
             }
         }
@@ -145,6 +144,10 @@ $(document).ready(function () {
     })
 
     $("#draw-btn").click(async function () {
+        if (loop) {
+            loop = false;
+            return;
+        }
         let ratioForIT = await fetchApi()// parseInt(rateEle.val()) / 100.0;
         rateEle.val(ratioForIT)
 
@@ -156,7 +159,7 @@ $(document).ready(function () {
 
         await loopSpinning();
         setOdometer(selectedMenber.MNV)
-        await delay(spinNum.every(x=>x>=0)?500:2000)
+        await delay(spinNum.every(x => x >= 0) ? 500 : 2000)
 
 
 
@@ -191,7 +194,7 @@ $(document).ready(function () {
         $("#result").append(result);
 
         $('#modal-text').html(`Congratulations to ${selectedMenber.Name} - ${selectedMenber.MNV} - ${selectedMenber.Department}!`);
-        $('#modal-p').html(`Bạn đã nhận được <span  class="animate-charcter">${message}</span>`);
+        $('#modal-p').html(`You get <span  class="animate-charcter">${message}</span>`);
 
         const l = `./images/${selectedMenber.MNV}.png`
         try {
@@ -210,7 +213,7 @@ $(document).ready(function () {
 
 
         $('#modal-container').removeAttr('class').addClass('one');
-        $('body').addClass('modal-active'); 
+        $('body').addClass('modal-active');
 
         audio.volume = 1;
         audio.currentTime = 0;
