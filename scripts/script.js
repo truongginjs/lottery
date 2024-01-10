@@ -1,4 +1,4 @@
-const path = './data.json';
+const path = './resources/data.json';
 var audio = new Audio('./resources/music.mp3');
 function fade() {
     audio.pause();
@@ -87,74 +87,52 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 
 
 
+let loop = false;
+let spinNum = null
+let trueNum = null;
+
 $(document).ready(function () {
     const rateEle = $("#rate-for-it");
+
+    $(this).keydown(function (e) {
+        const code = e.code
+        console.log(code)
+        if (code == 'Space') {
+            e.preventDefault();
+            if($('body').hasClass('modal-active'))
+            {
+                $('#modal-container').trigger('click')
+                return;
+            }
+            if (!loop)
+                $("#draw-btn").trigger('click');
+            else
+                loop = false;
+        }
+        if (code == 'KeyN') {
+            e.preventDefault();
+            for (let i = 0; i < spinNum.length; i++) {
+                const v = spinNum[i];
+                if (v < 0) {
+                    spinNum[i] = trueNum[i];
+                    break;
+                }
+            }
+        }
+        if (code.startsWith('Digit')) {
+            e.preventDefault();
+            const k = parseInt(code.slice(-1))
+            if(k<6){
+                $(`#option-reward input#option${k}`).trigger('click')
+            }
+        }
+    });
 
     $('#modal-container').click(function () {
         $(this).addClass('out');
         $('body').removeClass('modal-active');
         fade()
     });
-
-    $("#draw-btn").click(async function () {
-        let ratioForIT = await fetchApi()// parseInt(rateEle.val()) / 100.0;
-        rateEle.val(ratioForIT)
-        const selectedMenber = selectRandomMember(members, rewardedMenberList, ratioForIT);
-        rewardedMenberList.push(selectedMenber)
-
-        setOdometer(0)
-        // await delay(1000)
-        // setOdometer(9999999)
-        // await delay(1500)
-        // setOdometer(5555555)
-        // await delay(1500)
-        // setOdometer(9999999)
-        // await delay(1500)
-        // setOdometer(0)
-        // await delay(1500)
-        // setOdometer(5555555)
-        await delay(1500)
-
-        setOdometer(selectedMenber.MNV)
-
-        await delay(2000)
-
-
-
-        setReward(selectedMenber);
-
-    });
-
-    async function setReward(selectedMenber) {
-        let result = rewardedMenberList.map(menber => `<li>${message}: ${menber.Name} - ${menber.MNV} - ${menber.Department} </li>`).join('');
-        $("#result").html(result);
-
-        $('#modal-text').html(`Congratulations to ${selectedMenber.Name} - ${selectedMenber.MNV} - ${selectedMenber.Department}!`);
-        $('#modal-p').html(`Bạn đã nhận được ${message}`);
-
-        const l = `./images/${selectedMenber.MNV}.png`
-        try {
-            var c = await fetch(l)
-            if(c.ok)
-                $('#avatar').attr('src', l)
-            else
-                throw c
-        }
-        catch (e) {
-            $('#avatar').attr('src', './resources/fatcat.gif')
-            console.log(e)
-        }
-
-
-
-
-        $('#modal-container').removeAttr('class').addClass('one');
-        $('body').addClass('modal-active'); 0;
-
-        audio.volume = 1;
-        audio.currentTime = 0;
-        audio.play();
-    }
 
     $("#option-reward input").click(function () {
         $(this).attr('checked', 'true');
@@ -165,6 +143,79 @@ $(document).ready(function () {
         rateEle.val(rate)
         console.log(rate)
     })
+
+    $("#draw-btn").click(async function () {
+        let ratioForIT = await fetchApi()// parseInt(rateEle.val()) / 100.0;
+        rateEle.val(ratioForIT)
+
+        const selectedMenber = selectRandomMember(members, rewardedMenberList, ratioForIT);
+        const num = selectedMenber.MNV
+        trueNum = [...num.toString().padStart(7, '0')]
+        spinNum = trueNum.map(x => -1)
+        rewardedMenberList.push(selectedMenber)
+
+        await loopSpinning();
+        setOdometer(selectedMenber.MNV)
+        await delay(spinNum.every(x=>x>=0)?500:2000)
+
+
+
+        setReward(selectedMenber);
+
+
+    });
+
+    async function loopSpinning() {
+        loop = true;
+        let num1 = 0
+        let num2 = 5
+        let num3 = 9
+
+        while (loop && spinNum.some(x => x < 0)) {
+            setOdometer(setStep(num1));
+            await delay(1000);
+            setOdometer(setStep(num2));
+            await delay(1000);
+            setOdometer(setStep(num3));
+            await delay(1500);
+        }
+    }
+
+    function setStep(num) {
+        let result = parseInt(spinNum.map(x => x < 0 ? num : x).join(''))
+        return result
+    }
+
+    async function setReward(selectedMenber) {
+        let result = `<li>${message}: ${selectedMenber.Name} - ${selectedMenber.MNV} - ${selectedMenber.Department} </li>`
+        $("#result").append(result);
+
+        $('#modal-text').html(`Congratulations to ${selectedMenber.Name} - ${selectedMenber.MNV} - ${selectedMenber.Department}!`);
+        $('#modal-p').html(`Bạn đã nhận được <span  class="animate-charcter">${message}</span>`);
+
+        const l = `./images/${selectedMenber.MNV}.png`
+        try {
+            var c = await fetch(l)
+            if (c.ok)
+                $('#avatar').attr('src', l)
+            else
+                throw c
+        }
+        catch (e) {
+            $('#avatar').attr('src', './resources/dog.gif')
+            console.log(e)
+        }
+
+
+
+
+        $('#modal-container').removeAttr('class').addClass('one');
+        $('body').addClass('modal-active'); 
+
+        audio.volume = 1;
+        audio.currentTime = 0;
+        audio.play();
+    }
 });
 
 const execute = async () => {
