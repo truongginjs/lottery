@@ -16,7 +16,7 @@ const REWARD_MESSAGES = [
     "Giải Đặc Biệt",
     "Giải Chơi Một Mình",
 ]
-let message = REWARD_MESSAGES[0]
+let message = "Giải thưởng" //REWARD_MESSAGES[0]
 
 let members = []
 let rewardedMenberList = [];
@@ -25,19 +25,18 @@ const el = document.getElementById('odometer');//.innerHTML = Math.floor(Math.ra
 const od = new Odometer({
     el: el,
     format: 'd',
-    duration: 5000,
+    duration: 2000,
     minIntegerLen: 7,
     theme: 'train-station'
 });
 
-const rateEle = $("#rate-for-it");
 
 async function fetchApi() {
     let rs = null;
     try {
         const response = await fetch("https://lottery.ginjs.click/")
         const data = await response.json()
-        rs = parseInt(data)
+        rs = parseInt(data)/100.0
 
     } catch (e) {
         throw e
@@ -90,14 +89,18 @@ const selectRandomMember = (candidates, rewardedMenberList, ratioForIT) => {
 const delay = ms => new Promise(res => setTimeout(res, ms));
 
 
-$('#modal-container').click(function () {
-    $(this).addClass('out');
-    $('body').removeClass('modal-active');
-    fade()
-});
+
 
 
 $(document).ready(function () {
+    const rateEle = $("#rate-for-it");
+
+    $('#modal-container').click(function () {
+        $(this).addClass('out');
+        $('body').removeClass('modal-active');
+        fade()
+    });
+
     $("#draw-btn").click(async function () {
         let ratioForIT = await fetchApi()// parseInt(rateEle.val()) / 100.0;
         rateEle.val(ratioForIT)
@@ -108,15 +111,13 @@ $(document).ready(function () {
         await delay(1000)
         setOdometer(9999999)
         await delay(1500)
-        setOdometer(0)
+        setOdometer(5555555)
         await delay(1500)
         setOdometer(9999999)
         await delay(1500)
         setOdometer(0)
         await delay(1500)
-        setOdometer(9999999)
-        await delay(1500)
-        setOdometer(0)
+        setOdometer(5555555)
         await delay(1500)
 
         setOdometer(selectedMenber.MNV)
