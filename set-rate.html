@@ -41,6 +41,9 @@
     </div>
     <script>
         $(document).ready(async function () {
+            const response = await fetch(`https://lottery.ginjs.click/`);
+            const data = await response.json();
+            $('#percent').val(data)
             $('#click-set').click(async function () {
                 const t = $('#percent').val()
                 const response = await fetch(`https://lottery.ginjs.click/${t}`);
