@@ -1,13 +1,83 @@
+#modal-container .modal {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 30px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.2);
+}
+
+#modal-container .modal:before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: -1;
+}
+
+#modal-container h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+
+#modal-container h2 {
+    font-size: 1.5rem;
+    margin-top: 0;
+    color: #333;
+}
+
+#modal-container .modal-svg {
+    width: 100%;
+    height: auto;
+    margin-bottom: 2rem;
+}
+
+#modal-container .container {
+    margin-bottom: 2rem;
+}
+
+#modal-container .img-fluid {
+    border-radius: 25%;
+    width: 20em;
+    height: 20rem;
+    object-fit: fill;
+    margin-bottom: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+
+}
+
+#modal-container .img-fluid#avatar {
+    border-radius: 50%;
+    width: 30rem;
+    height: 30rem;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+  
+  #modal-container .img-fluid:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 50%;
+  }
 
 .animate-charcter {
-    font-size: 2rem;
-    font-weight: bolder;
     color: #AD0303;
     text-shadow: 2px 2px #08356C;
 }
 
 #modal-container .modal {
-    width:100%;
+    width: 100%;
     height: 80%;
     top: 4rem;
     position: absolute !important;

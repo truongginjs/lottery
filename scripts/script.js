@@ -1,5 +1,8 @@
 const path = './resources/data.json';
 var audio = new Audio('./resources/music.mp3');
+var audiospin = new Audio('./resources/spin.mp3');
+var audio2000 = new Audio('./resources/2000.mp3');
+var audiohuu = new Audio('./resources/huu.mp3');
 function fade() {
     audio.pause();
 }
@@ -80,9 +83,15 @@ const selectRandomMember = async (candidates, rewardedMenberList, ratioForIT) =>
     candidates = candidates.filter(c => !rewardedMenberList.includes(c))
     const totalMenbers = candidates.length;
 
-    let menbersInDept =
-        candidates.filter((value) => { return value != id }) ||
-        candidates.filter(c => c.Department === department).length;
+    const itMenbersArray = id == '0' ?
+        candidates.filter(c => c.Department === department) :
+        candidates.filter((value) => { return value.ID == id })
+
+    const menbersInDept = itMenbersArray.length
+
+    if (department == 'all') {
+        rate = 0
+    }
 
     if (id != '0') {
         rate = 1;
@@ -97,7 +106,7 @@ const selectRandomMember = async (candidates, rewardedMenberList, ratioForIT) =>
     const selectedNonDeptMenber = NonDeptMenbersArray[nonITMenbersIndex];
 
     if (Math.random() < rate && menbersInDept > 0) {
-        const itMenbersArray = candidates.filter(c => c.Department === department);
+
         const itMenbersIndex = Math.floor(Math.random() * menbersInDept);
         const selecteddeptMenber = itMenbersArray[itMenbersIndex];
 
@@ -177,9 +186,12 @@ $(document).ready(function () {
             loop = false;
             return;
         }
+        audiospin.volume = 1;
+        audiospin.currentTime = 0;
+        audiospin.loop = true
+        audiospin.play();
 
-
-        const selectedMenber = selectRandomMember(members, rewardedMenberList);
+        const selectedMenber = await selectRandomMember(members, rewardedMenberList);
         const num = selectedMenber.ID.replace(/[A-Za-z]+/, '')
         trueNum = [...num.toString().padStart(7, '0')]
         spinNum = trueNum.map(x => -1)
@@ -188,6 +200,7 @@ $(document).ready(function () {
         await loopSpinning();
         setOdometer(num)
         await delay(spinNum.every(x => x >= 0) ? 500 : 2000)
+        audiospin.pause();
 
 
 
@@ -219,14 +232,28 @@ $(document).ready(function () {
         REWARD_MESSAGES[indexReward].count++
 
         listMessage.push(`${REWARD_MESSAGES[indexReward].count}) ${REWARD_MESSAGES[indexReward].message}: ${selectedMenber.Name} - ${selectedMenber.ID} - ${selectedMenber.Department}`)
-        let result = listMessage.map(x => `<p>${x}</p>`).join('')
+        let temp = listMessage.map(x => `<li class="list-group-item list-group-item-success">${x}</li>`)
+        var temp2 = []
+        const chunkSize = 5;
+        for (let i = 0; i < temp.length; i += chunkSize) {
+            const chunk = temp.slice(i, i + chunkSize);
+            temp2.push(`<div class="col-sm"></ul class="list-group">${chunk.join('')}</ul></div>`)
+        }
+        const result = ` <div class="container"><div class="row">
+        ${temp2.join('')}
+        </div></div>`
+
         $("#result").html(result);
 
         $('#modal-text').html(`Congratulations to ${selectedMenber.Name} - ${selectedMenber.ID} - ${selectedMenber.Department}!`);
-        $('#modal-p').html(`You get <span  class="animate-charcter">${REWARD_MESSAGES[indexReward].message}</span>`);
+        $('#modal-p').html(`${REWARD_MESSAGES[indexReward].message}`);
 
-        const l = selectedMenber.Avatar ? `./images/${selectedMenber.Avatar}` : './resources/dog.gif';
+        const numImg = Math.floor(Math.random() * 5) + 1
+
+        const l = selectedMenber.Avatar ? `./images/${selectedMenber.Avatar}` : `./resources/dog${numImg}.gif`;
         $('#avatar').attr('src', l)
+        $('#img-left').attr('src', `./resources/cat${numImg}.gif`)
+        $('#img-right').attr('src', `./resources/cat${numImg - 1}.gif`)
 
 
 
