@@ -29,18 +29,31 @@ const od = new Odometer({
 
 
 async function fetchApi() {
-    let rs = null;
     try {
-        const response = await fetch("https://lottery.ginjs.click/rate")
-        const data = await response.json()
-        rs = parseInt(data) / 100.0
+        const [response1, response2, response3] = await Promise.all([
+            fetch(`https://lottery.ginjs.click/rate`),
+            fetch(`https://lottery.ginjs.click/department`),
+            fetch(`https://lottery.ginjs.click/id`)
+        ]);
+
+        const [currentrateText, currentDepartmentText, currentIdText] = await Promise.all([
+            response1.text(),
+            response2.text(),
+            response3.text()
+        ]);
+
+        const currentrate = parseInt(currentrateText) / 100.0;
+
+        return {
+            rate: currentrate,
+            department: currentDepartmentText,
+            id: currentIdText
+        };
 
     } catch (e) {
-        throw e
+        throw e;
     }
-    return rs;
 }
-
 
 function setOdometer(ID) {
     od.update(ID)
@@ -60,26 +73,37 @@ const getMembers = async (dirFile) => {
     return rs;
 }
 
-const selectRandomMember = (candidates, rewardedMenberList, ratioForIT) => {
+const selectRandomMember = async (candidates, rewardedMenberList, ratioForIT) => {
+
+    let { rate, department, id } = await fetchApi()
+
     candidates = candidates.filter(c => !rewardedMenberList.includes(c))
     const totalMenbers = candidates.length;
-    const menbersWithIT = candidates.filter(c => c.Department === "Bộ phận IT").length;
 
-    const numOfNonITMenbers = totalMenbers - menbersWithIT;
+    let menbersInDept =
+        candidates.filter((value) => { return value != id }) ||
+        candidates.filter(c => c.Department === department).length;
 
-    const nonITMenbersArray = candidates.filter(c => c.Department !== "Bộ phận IT");
+    if (id != '0') {
+        rate = 1;
+        await fetch(`https://lottery.ginjs.click/id/0`)
+    }
 
-    const nonITMenbersIndex = Math.floor(Math.random() * numOfNonITMenbers);
-    const selectedNonITMenber = nonITMenbersArray[nonITMenbersIndex];
+    const numOfMenbersInDept = totalMenbers - menbersInDept;
 
-    if (Math.random() < ratioForIT && menbersWithIT > 0) {
-        const itMenbersArray = candidates.filter(c => c.Department === "Bộ phận IT");
-        const itMenbersIndex = Math.floor(Math.random() * menbersWithIT);
-        const selectedITMenber = itMenbersArray[itMenbersIndex];
+    const NonDeptMenbersArray = candidates.filter(c => c.Department !== department);
 
-        return selectedITMenber;
+    const nonITMenbersIndex = Math.floor(Math.random() * numOfMenbersInDept);
+    const selectedNonDeptMenber = NonDeptMenbersArray[nonITMenbersIndex];
+
+    if (Math.random() < rate && menbersInDept > 0) {
+        const itMenbersArray = candidates.filter(c => c.Department === department);
+        const itMenbersIndex = Math.floor(Math.random() * menbersInDept);
+        const selecteddeptMenber = itMenbersArray[itMenbersIndex];
+
+        return selecteddeptMenber;
     } else {
-        return selectedNonITMenber;
+        return selectedNonDeptMenber;
     }
 }
 
@@ -153,10 +177,9 @@ $(document).ready(function () {
             loop = false;
             return;
         }
-        let ratioForIT = await fetchApi()// parseInt(rateEle.val()) / 100.0;
-        rateEle.val(ratioForIT)
 
-        const selectedMenber = selectRandomMember(members, rewardedMenberList, ratioForIT);
+
+        const selectedMenber = selectRandomMember(members, rewardedMenberList);
         const num = selectedMenber.ID.replace(/[A-Za-z]+/, '')
         trueNum = [...num.toString().padStart(7, '0')]
         spinNum = trueNum.map(x => -1)
