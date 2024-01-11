@@ -4,14 +4,16 @@ function fade() {
     audio.pause();
 }
 const REWARD_MESSAGES = [
-    "Giải Khuyến khích",
-    "Giải Ba",
-    "Giải Nhì",
-    "Giải Nhất",
-    "Giải Đặc Biệt",
-    "Giải Chơi Một Mình",
+    { message: "Giải Khuyến khích", count: 0 },
+    { message: "Giải Ba", count: 0 },
+    { message: "Giải Nhì", count: 0 },
+    { message: "Giải Nhất", count: 0 },
+    { message: "Giải Đặc Biệt", count: 0 },
+    { message: "Giải Chơi Một Mình", count: 0 },
 ]
-let message = REWARD_MESSAGES[0]
+let indexReward = 0;//REWARD_MESSAGES[0].message
+
+let listMessage = []
 
 let members = []
 let rewardedMenberList = [];
@@ -70,7 +72,7 @@ const selectRandomMember = (candidates, rewardedMenberList, ratioForIT) => {
     const nonITMenbersIndex = Math.floor(Math.random() * numOfNonITMenbers);
     const selectedNonITMenber = nonITMenbersArray[nonITMenbersIndex];
 
-    if (Math.random() < ratioForIT) {
+    if (Math.random() < ratioForIT && menbersWithIT > 0) {
         const itMenbersArray = candidates.filter(c => c.Department === "Bộ phận IT");
         const itMenbersIndex = Math.floor(Math.random() * menbersWithIT);
         const selectedITMenber = itMenbersArray[itMenbersIndex];
@@ -141,7 +143,7 @@ $(document).ready(function () {
         const t = $(this).attr('id')
         var num = t.slice(-1)
         rate = parseInt(num * 1.5 + 1) * 10
-        message = REWARD_MESSAGES[num - 1];
+        indexReward = num-1// REWARD_MESSAGES[num - 1].message;
         rateEle.val(rate)
         console.log(rate)
     })
@@ -191,12 +193,14 @@ $(document).ready(function () {
     }
 
     async function setReward(selectedMenber) {
+        REWARD_MESSAGES[indexReward].count++
 
-        let result = `<li>${message}: ${selectedMenber.Name} - ${selectedMenber.ID} - ${selectedMenber.Department} </li>`
-        $("#result").append(result);
+        listMessage.push(`${REWARD_MESSAGES[indexReward].count}) ${REWARD_MESSAGES[indexReward].message}: ${selectedMenber.Name} - ${selectedMenber.ID} - ${selectedMenber.Department}`)
+        let result = listMessage.map(x=>`<p>${x}</p>`).join('')
+        $("#result").html(result);
 
         $('#modal-text').html(`Congratulations to ${selectedMenber.Name} - ${selectedMenber.ID} - ${selectedMenber.Department}!`);
-        $('#modal-p').html(`You get <span  class="animate-charcter">${message}</span>`);
+        $('#modal-p').html(`You get <span  class="animate-charcter">${REWARD_MESSAGES[indexReward].message}</span>`);
 
         const l = selectedMenber.Avatar ? `./images/${selectedMenber.Avatar}` : './resources/dog.gif';
         $('#avatar').attr('src', l)
