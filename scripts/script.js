@@ -133,7 +133,7 @@ $(document).ready(function () {
         $(this).addClass('out');
         $('body').removeClass('modal-active');
         fade()
-        toggleConfetti();
+        stopConfetti();
     });
 
     $("#option-reward input").click(function () {
@@ -206,7 +206,7 @@ $(document).ready(function () {
 
         $('#modal-container').removeAttr('class').addClass('one');
         $('body').addClass('modal-active');
-        toggleConfetti();
+        startConfetti();
         audio.volume = 1;
         audio.currentTime = 0;
         audio.play();
