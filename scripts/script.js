@@ -40,8 +40,8 @@ async function fetchApi() {
 }
 
 
-function setOdometer(mnv) {
-    od.update(mnv)
+function setOdometer(ID) {
+    od.update(ID)
 }
 
 const getMembers = async (dirFile) => {
@@ -119,7 +119,7 @@ $(document).ready(function () {
                 }
             }
         }
-        
+
         if (code.startsWith('Digit')) {
             e.preventDefault();
             const k = parseInt(code.slice(-1))
@@ -155,13 +155,13 @@ $(document).ready(function () {
         rateEle.val(ratioForIT)
 
         const selectedMenber = selectRandomMember(members, rewardedMenberList, ratioForIT);
-        const num = selectedMenber.MNV
+        const num = selectedMenber.ID.replace(/[A-Za-z]+/, '')
         trueNum = [...num.toString().padStart(7, '0')]
         spinNum = trueNum.map(x => -1)
         rewardedMenberList.push(selectedMenber)
 
         await loopSpinning();
-        setOdometer(selectedMenber.MNV)
+        setOdometer(num)
         await delay(spinNum.every(x => x >= 0) ? 500 : 2000)
 
 
@@ -191,25 +191,15 @@ $(document).ready(function () {
     }
 
     async function setReward(selectedMenber) {
-        
-        let result = `<li>${message}: ${selectedMenber.Name} - ${selectedMenber.MNV} - ${selectedMenber.Department} </li>`
+
+        let result = `<li>${message}: ${selectedMenber.Name} - ${selectedMenber.ID} - ${selectedMenber.Department} </li>`
         $("#result").append(result);
 
-        $('#modal-text').html(`Congratulations to ${selectedMenber.Name} - ${selectedMenber.MNV} - ${selectedMenber.Department}!`);
+        $('#modal-text').html(`Congratulations to ${selectedMenber.Name} - ${selectedMenber.ID} - ${selectedMenber.Department}!`);
         $('#modal-p').html(`You get <span  class="animate-charcter">${message}</span>`);
 
-        const l = `./images/${selectedMenber.MNV}.png`
-        try {
-            var c = await fetch(l)
-            if (c.ok)
-                $('#avatar').attr('src', l)
-            else
-                throw c
-        }
-        catch (e) {
-            $('#avatar').attr('src', './resources/dog.gif')
-            console.log(e)
-        }
+        const l = selectedMenber.Avatar ? `./images/${selectedMenber.Avatar}` : './resources/dog.gif';
+        $('#avatar').attr('src', l)
 
 
 
@@ -223,9 +213,64 @@ $(document).ready(function () {
     }
 });
 
+// const image = [
+//     "111125.jpeg",
+//     "111125.jpg",
+//     "111127.png",
+//     "114671.jpg",
+//     "117499.jpg",
+//     "117934.jpg",
+//     "118478.jpg",
+//     "118478.png",
+//     "119102.jpg",
+//     "120700.jpg",
+//     "120960.jpg",
+//     "120980.jpg",
+//     "121246.jpg",
+//     "121487.jpg",
+//     "121488.JPEG",
+//     "121488.png",
+//     "122077.jpg",
+//     "40174.jpg",
+//     "40720.jpg",
+//     "41179.jpg",
+//     "43455.jpg",
+//     "44690.jpeg",
+//     "44708.jpg",
+//     "45425.jpg",
+//     "45544.jpg",
+//     "46798.jpg",
+//     "73657.jpg",
+//     "8008489.jpg",
+//     "8008913.jpg",
+//     "8009259.jpg",
+//     "8010678.jpg",
+//     "8013888.jpg",
+//     "8019035.jpg",
+//     "8023775.jpg",
+//     "8023850.jpg",
+//     "8024701.jpg",
+//     "81006.jpg",
+//     "81935.jpg",
+//     "85354.jpg",
+//     "86254.jpg",
+//     "92982.jpg",
+//     "93040.jpg",
+//     "VCB01.jpg",
+//     "VCB02.jpg",
+//     "VCB03.jpg",
+//     "VCB04.jpg",
+//     "VCB05.jpg",
+//     "VCB06.jpg",
+//     "VCB07.jpg",
+// ]
 const execute = async () => {
     members = await getMembers(path)
+    // const tt = members.map(x => ({ ...x, 'Avatar': image.find(i => i.split('.')[0] == x.ID) }))
+    // console.log(JSON.stringify(tt))
 }
 
 
 execute()
+
+
