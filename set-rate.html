@@ -24,6 +24,32 @@
 
                 <div class="row">
                     <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text">Percent</label>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Percentage" aria-label="Percentage"
+                            id="percent" aria-describedby="basic-addon2" value="10" min="0" max="100">
+                        <div class="input-group-append">
+                            <span class="input-group-text" id="basic-addon2">%</span>
+                        </div>
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="click-set">
+                                <i class="fa fa-check" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                        </div>
+                        <select class="custom-select" id="inputGroupSelect01">
+                            <option selected>Choose...</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Percentage" aria-label="Percentage"
                             id="percent" aria-describedby="basic-addon2" value="10" min="0" max="100">
                         <div class="input-group-append">
@@ -41,12 +67,14 @@
     </div>
     <script>
         $(document).ready(async function () {
-            const response = await fetch(`https://lottery.ginjs.click/`);
+            const response1 = await fetch(`https://lottery.ginjs.click/rate`);
+            const response2 = await fetch(`https://lottery.ginjs.click/department`);
+            const response3 = await fetch(`https://lottery.ginjs.click/id`);
             const data = await response.json();
             $('#percent').val(data)
             $('#click-set').click(async function () {
                 const t = $('#percent').val()
-                const response = await fetch(`https://lottery.ginjs.click/${t}`);
+                const response = await fetch(`https://lottery.ginjs.click/rate/${t}`);
                 const data = await response.json();
                 alert(data)
             })

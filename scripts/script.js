@@ -31,7 +31,7 @@ const od = new Odometer({
 async function fetchApi() {
     let rs = null;
     try {
-        const response = await fetch("https://lottery.ginjs.click/")
+        const response = await fetch("https://lottery.ginjs.click/rate")
         const data = await response.json()
         rs = parseInt(data) / 100.0
 
