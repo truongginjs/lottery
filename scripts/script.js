@@ -143,7 +143,7 @@ $(document).ready(function () {
         const t = $(this).attr('id')
         var num = t.slice(-1)
         rate = parseInt(num * 1.5 + 1) * 10
-        indexReward = num-1// REWARD_MESSAGES[num - 1].message;
+        indexReward = num - 1// REWARD_MESSAGES[num - 1].message;
         rateEle.val(rate)
         console.log(rate)
     })
@@ -196,7 +196,7 @@ $(document).ready(function () {
         REWARD_MESSAGES[indexReward].count++
 
         listMessage.push(`${REWARD_MESSAGES[indexReward].count}) ${REWARD_MESSAGES[indexReward].message}: ${selectedMenber.Name} - ${selectedMenber.ID} - ${selectedMenber.Department}`)
-        let result = listMessage.map(x=>`<p>${x}</p>`).join('')
+        let result = listMessage.map(x => `<p>${x}</p>`).join('')
         $("#result").html(result);
 
         $('#modal-text').html(`Congratulations to ${selectedMenber.Name} - ${selectedMenber.ID} - ${selectedMenber.Department}!`);
