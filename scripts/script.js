@@ -131,6 +131,7 @@ $(document).ready(function () {
         $(this).addClass('out');
         $('body').removeClass('modal-active');
         fade()
+        toggleConfetti();
     });
 
     $("#option-reward input").click(function () {
@@ -190,6 +191,7 @@ $(document).ready(function () {
     }
 
     async function setReward(selectedMenber) {
+        
         let result = `<li>${message}: ${selectedMenber.Name} - ${selectedMenber.MNV} - ${selectedMenber.Department} </li>`
         $("#result").append(result);
 
@@ -214,7 +216,7 @@ $(document).ready(function () {
 
         $('#modal-container').removeAttr('class').addClass('one');
         $('body').addClass('modal-active');
-
+        toggleConfetti();
         audio.volume = 1;
         audio.currentTime = 0;
         audio.play();
