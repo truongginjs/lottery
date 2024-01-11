@@ -86,7 +86,7 @@
 
 <body style="background-color: #fd79a838;">
     <header class="d-flex justify-content-center">
-        <h1>GIẢI LÔ TÔ IT MỞ RỘNG!</h1>
+        <h1>GIẢI BỐC THĂM TRÚNG THƯỞNG PPJ!</h1>
     </header>
     <main>
         <div class="container">
@@ -120,7 +120,12 @@
                 </div>
             </div>
             <div class="row mb-3 d-flex justify-content-center">
-                <button id="draw-btn" class="button-63">QUAY GIẢI!</button>
+                <button id="draw-btn" class="btn btn-outline-dark">QUAY GIẢI!</button>
+                <button type="button" class="btn btn-outline-dark" data-toggle="modal"
+                    data-target=".bd-example-modal-sm">
+                    ?
+                </button>
+
             </div>
 
             <div class="d-flex justify-content-center mb-3">
@@ -168,6 +173,26 @@
         </div>
     </div>
 
+    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Tutorial</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">S: Start/Stop</li>
+                        <li class="list-group-item">Space: Stop spinning 1 digit</li>
+                        <li class="list-group-item">1,2,3,4 or 5: Select prize type</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="./scripts/odometer.js"></script>
 
     <script src="./scripts/script.js"></script>

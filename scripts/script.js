@@ -97,7 +97,7 @@ $(document).ready(function () {
     $(this).keydown(function (e) {
         const code = e.code
         console.log(code)
-        if (code == 'Space') {
+        if (code == 'KeyS') {
             e.preventDefault();
             if ($('body').hasClass('modal-active')) {
                 $('#modal-container').trigger('click')
@@ -108,7 +108,8 @@ $(document).ready(function () {
             else
                 loop = false;
         }
-        if (code == 'KeyN') {
+
+        if (code == 'Space') {
             e.preventDefault();
             for (let i = 0; i < spinNum.length; i++) {
                 const v = spinNum[i];
@@ -118,6 +119,7 @@ $(document).ready(function () {
                 }
             }
         }
+        
         if (code.startsWith('Digit')) {
             e.preventDefault();
             const k = parseInt(code.slice(-1))
@@ -178,10 +180,8 @@ $(document).ready(function () {
         while (loop && spinNum.some(x => x < 0)) {
             setOdometer(setStep(num1));
             await delay(1000);
-            setOdometer(setStep(num2));
-            await delay(1000);
             setOdometer(setStep(num3));
-            await delay(1500);
+            await delay(1000);
         }
     }
 
