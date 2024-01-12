@@ -3,6 +3,11 @@ var audio = new Audio('./resources/music.mp3');
 var audiospin = new Audio('./resources/spin.mp3');
 var audio2000 = new Audio('./resources/2000.mp3');
 var audiohuu = new Audio('./resources/huu.mp3');
+
+audio.loop = true;
+audiospin.loop = true;
+audio2000.loop = true;
+audiohuu.loop = true;
 function fade() {
     audio.pause();
 }
@@ -188,7 +193,6 @@ $(document).ready(function () {
         }
         audiospin.volume = 1;
         audiospin.currentTime = 0;
-        audiospin.loop = true
         audiospin.play();
 
         const selectedMenber = await selectRandomMember(members, rewardedMenberList);
