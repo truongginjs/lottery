@@ -256,9 +256,9 @@ $(document).ready(function () {
             const chunk = temp.slice(i, i + chunkSize);
             temp2.push(`<div class="col-sm"></ul class="list-group">${chunk.join('')}</ul></div>`)
         }
-        const result = ` <div class="container"><div class="row">
+        const result = `<div class="row">
         ${temp2.join('')}
-        </div></div>`
+        </div>`
 
         $("#result").html(result);
 
