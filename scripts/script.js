@@ -6,8 +6,8 @@ var audiohuu = new Audio('./resources/huu.mp3');
 
 audio.loop = true;
 audiospin.loop = true;
-audio2000.loop = true;
-audiohuu.loop = true;
+// audio2000.loop = true;
+// audiohuu.loop = true;
 function fade() {
     audio.pause();
 }
@@ -125,8 +125,6 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 
 
 
-
-
 let loop = false;
 let spinNum = null
 let trueNum = null;
@@ -151,6 +149,7 @@ $(document).ready(function () {
 
         if (code == 'Space') {
             e.preventDefault();
+            if (!spinNum) return
             for (let i = 0; i < spinNum.length; i++) {
                 const v = spinNum[i];
                 if (v < 0) {
@@ -198,13 +197,27 @@ $(document).ready(function () {
         const selectedMenber = await selectRandomMember(members, rewardedMenberList);
         const num = selectedMenber.ID.replace(/[A-Za-z]+/, '')
         trueNum = [...num.toString().padStart(7, '0')]
+        trueNum.sort()
         spinNum = trueNum.map(x => -1)
         rewardedMenberList.push(selectedMenber)
 
         await loopSpinning();
+
+        if (spinNum.every(x => parseInt(x) >= 0)) {
+            audiospin.pause();
+            audiohuu.currentTime = 0;
+            audiohuu.play();
+            await delay(2000)
+        }
+
         setOdometer(num)
-        await delay(spinNum.every(x => x >= 0) ? 500 : 2000)
-        audiospin.pause();
+        await delay(spinNum.every(x => x >= 0) ? 2000 : 2000)
+
+        if (spinNum.every(x => parseInt(x) >= 0)) {
+            audiohuu.pause();
+        } else {
+            audiospin.pause();
+        }
 
 
 
