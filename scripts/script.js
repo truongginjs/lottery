@@ -7,12 +7,12 @@ function fade() {
     audio.pause();
 }
 const REWARD_MESSAGES = [
-    { message: "Giải Khuyến khích", count: 0 },
-    { message: "Giải Ba", count: 0 },
-    { message: "Giải Nhì", count: 0 },
-    { message: "Giải Nhất", count: 0 },
-    { message: "Giải Đặc Biệt", count: 0 },
-    { message: "Giải Chơi Một Mình", count: 0 },
+    { message: "GIẢI KHUYẾN KHÍCH", count: 0 },
+    { message: "GIẢI BA", count: 0 },
+    { message: "GIẢI NHÌ", count: 0 },
+    { message: "GIẢI NHẤT", count: 0 },
+    { message: "GIẢI ĐẶC BIỆT", count: 0 },
+    { message: "GIẢI CHƠI MỘT MÌNH", count: 0 },
 ]
 let indexReward = 0;//REWARD_MESSAGES[0].message
 
