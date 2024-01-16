@@ -9,12 +9,15 @@
     <link rel="icon" type="image/x-icon" href="./resources/lottery.png">
     <link rel="stylesheet" href="./styles/bootstrap.min.css">
     <link rel="stylesheet" href="./styles/odometer-theme-train-station.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/firework.css">
+    <script src="./styles/phaohoa.css"></script>
 
     <script src="./scripts/jquery.min.js"></script>
     <script src="./scripts/popper.min.js"></script>
     <script src="./scripts/bootstrap.min.js"></script>
+
     <style>
         .odometer {
             font-size: 3rem;
@@ -152,20 +155,17 @@
 </head>
 
 <body style="background-color: #ecf0f1;">
-    <header>
+    <div class="bg-dao"></div>
+    <header class="pt-3 pb-2">
         <div class="container text-center two alt-two pb-2">
-            <img style="position: absolute;left: 2rem;top: 0.5rem; max-width: 100px;" src="./resources/logo.png"
+            <img style="position: absolute;left: 2rem;top: 0.5rem; height: 80px;" src="./resources/logo.png"
                 alt="logo-PPJ-new-slogan">
-            <h1>CHƯƠNG TRINH BỐC THĂM TRÚNG THƯỞNG
-                <span>KHỐI KIỂM SOÁT-QUẢN TRỊ RỦI RO</span>
-            </h1>
+            <h2>CHƯƠNG TRÌNH</h2>
+            <h1> BỐC THĂM TRÚNG THƯỞNG</h1>
+            <div class="khoi mt-3">KHỐI QUẢN TRị TÀI CHÍNH - KIỂM SOÁT RỦI RO</div>
+            
         </div>
-        <!-- <div class="container text-center">
-            <div>
-                <h1 class="display-6 mt-3 mb-1">CHƯƠNG TRINH BỐC THĂM TRÚNG THƯỞNG</h1>
-                <h2 class="display-6 mb-4">KHỐI KIỂM SOÁT-QUẢN TRỊ RỦI RO</h2>
-            </div>
-        </div> -->
+
     </header>
     <main>
         <div class="container">
@@ -198,59 +198,82 @@
                 </div>
             </div>
             <div class="row mb-3 d-flex justify-content-center">
-                <button id="draw-btn" class="btn btn-outline-dark">QUAY GIẢI!</button>
-                <button type="button" class="btn btn-outline-dark" data-toggle="modal"
-                    data-target=".bd-example-modal-sm">
-                    ?
+                <button id="randomRewarded"
+                class="btn btn-success modal-active"
+                >
+                    <i class="fa-regular fa-circle-dot d-block" style="font-size: 100px;"></i>
+                    <div>QUAY GIẢI!</div>
+                    
                 </button>
-
             </div>
 
             <div class="d-flex justify-content-center mb-6">
                 <div id="odometer" class="odometer"></div>
             </div>
 
-            <!-- <h4>CONGRATULATION TO:</h4> -->
-
-
-            
+            <div class="bg-info p-3 mt-4 rounded">
+                <div class="row" id="resultName">
+                    <div class="col d-flex justify-content-center align-items-center font-weight-bold" style="color: red; font-size: 24px">GIẢI KHUYẾN KHÍCH</div>
+                </div>
+                <!-- <h4>CONGRATULATION TO:</h4> -->     
+                <div class="row mt-4 bg-info" id="result"></div>
+            </div>
         </div>
-        
-        <div id="result" class="mt-4"></div>
-
+        <div 
+            class="m-auto position-fixed"
+            style="bottom: 10px; right: 10px;"
+        >
+            <div>
+                <button type="button"
+                class="btn btn-outline-dark"
+                data-toggle="modal"
+                data-target=".bd-example-modal-sm">
+                ?
+                </button>
+                <button type="button"
+                class="btn btn-outline-dark"
+                data-toggle="modal"
+                data-target="#bd-example-modal-result-sm"
+                id="summary">
+                Kết quả cuối
+                </button>
+                <button type="button"
+                data-toggle="modal"
+                class="btn btn-outline-dark"
+                data-target="#modal-phaohoa"
+                id="phaohoaBtn"
+                >
+                Pháo hoa
+                </button>
+            </div>
+        </div>
     </main>
     <div id="modal-container">
         <div class="js-container container modal-background" style="top:0px !important;">
-            <div class="modal">
-                <h3 id="modal-text">I'm a Modal</h3>
-
-                <svg class="modal-svg" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"
-                    preserveAspectrate="none">
-                    <rect x="0" y="0" fill="none" width="226" height="162" rx="3" ry="3"></rect>
-                </svg>
-
-
-                <div class="row d-flex justify-content-between">
-                    <div class="col-sm">
+            <div class="modal" id="bg-modal1">
+                <h3 id="modal-text">chúc mừng</h3>
+                <div class="row d-flex justify-content-between m-5">
+                    <div class="col-3 d-flex justify-content-between">
                         <img id="img-left" src="./resources/cat3.gif"
                             class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
                             alt="fatcat">
-                    </div>
-                    <div class="col-sm">
-                        <div class="rounded-circle">
+                        </div>
+                        <div class="pyro"><div class="before"></div><div class="after"></div></div>
+                    <div class="col-6 d-flex justify-content-between">
+                        <div class="rounded-circle overflow-hidden m-auto" style="height: 400px; width: 400px;">
                             <img id="avatar" src="./resources/dog1.gif"
-                                class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                                class="img-fluid w-100 h-100 object-fit-cover"
+                                style="object-fit: cover !important;"
                                 onerror="this.onerror=null;this.src='./resources/dog1.gif';" alt="dog">
                         </div>
                     </div>
-                    <div class="col-sm">
+                    <div class="col-3 d-flex justify-content-between">
                         <img id="img-right" src="./resources/cat5.gif"
                             class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
                             alt="cat">
                     </div>
                 </div>
-
-                <h1 id="modal-p" class="display-3 font-weight-bold animate-charcter">Hear me roar.</h2>
+                <h1 id="modal-p" class="display-3 font-weight-bold animate-charcter">Giải</h2>
             </div>
         </div>
     </div>
@@ -275,10 +298,26 @@
             </div>
         </div>
     </div>
-    <script src="./scripts/odometer.js"></script>
 
+    <div class="modal fade" id="bd-example-modal-result-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+        aria-hidden="true">
+    </div>
+    <div class="container" id="modal-phao-hoa">
+        <div class="modal phaohoa" id="modal-phaohoa">
+            <div class="modal-body p-0">
+                <canvas id="canvas"></canvas>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-bs-dismiss="modal" class="btn btn-secondary" id="phaohoaBtnClose">Close</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="./scripts/odometer.js"></script>
     <script src="./scripts/script.js"></script>
     <script src="./scripts/firework.js"></script>
+    <script src="./scripts/phaohoa.js"></script>
+      
 </body>
 
 </html>
