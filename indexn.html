@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lottery</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./styles/odometer-theme-train-station.css">
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/firework.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/odometer.js/0.4.8/odometer.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.9.4/particles.min.js"></script>
+    <style>
+        .odometer {
+            font-size: 3rem;
+
+        }
+
+        .odometer-digit {
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+            text-shadow: 3px 0px 7px rgba(81, 67, 21, 0.8),
+                -3px 0px 7px rgba(81, 67, 21, 0.8),
+                0px 4px 7px rgba(81, 67, 21, 0.8);
+        }
+
+        @media screen and (min-width: 768px) {
+            .odometer {
+                font-size: 10rem;
+
+            }
+        }
+
+
+        /* CSS */
+        .button-63 {
+            align-items: center;
+            background-image: linear-gradient(144deg, #AF40FF, #5B42F3 50%, #00DDEB);
+            border: 0;
+            border-radius: 8px;
+            box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+            box-sizing: border-box;
+            color: #FFFFFF;
+            display: flex;
+            font-family: Phantomsans, sans-serif;
+            font-size: 20px;
+            justify-content: center;
+            line-height: 1em;
+            max-width: 100%;
+            min-width: 140px;
+            padding: 19px 24px;
+            text-decoration: none;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
+        .button-63:active,
+        .button-63:hover {
+            outline: 0;
+        }
+
+        @media (min-width: 768px) {
+            .button-63 {
+                font-size: 24px;
+                min-width: 196px;
+            }
+        }
+
+        header h1 {
+            /* text-shadow: .1em .1em 0 #2980b9; */
+            text-transform: uppercase;
+            background: linear-gradient(to right, #c0392b 0%, #2980b9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Poppins', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container text-center">
+            <h1 class="display-4 mb-4">CHƯƠNG TRINH BỐC THĂM TRÚNG THƯỞNG</h1>
+            <h2 class="display-6 mb-4">CỦA KHỐI KIỂM SOÁT-QUẢN TRỊ RỦI RO</h2>
+        </div>
+    </header>
+
+    <main>
+        <section class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="rate-for-it">Percentage</label>
+                        <input type="number" class="form-control" id="rate-for-it" name="rate-for-it"
+                            placeholder="Percent" value="20" min="0" max="100">
+                        <small id="rate-for-itHelp" class="form-text text-muted">Percentage for ITer can get
+                            rewards</small>
+                    </div>
+
+                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                        <label class="btn btn-outline-primary active">
+                            <input type="radio" name="options" id="option1" autocomplete="off" checked> Giải Khuyến
+                            khích
+                        </label>
+                        <label class="btn btn-outline-success">
+                            <input type="radio" name="options" id="option2" autocomplete="off"> Giải Ba
+                        </label>
+                        <label class="btn btn-outline-dark">
+                            <input type="radio" name="options" id="option3" autocomplete="off"> Giải Nhì
+                        </label>
+                        <label class="btn btn-outline-info">
+                            <input type="radio" name="options" id="option4" autocomplete="off"> Giải Nhất
+                        </label>
+                        <label class="btn btn-outline-danger">
+                            <input type="radio" name="options" id="option5" autocomplete="off"> Giải Đặc Biệt
+                        </label>
+                        <!-- <label class="btn btn-outline-dark">
+              <input type="radio" name="options" id="option6" autocomplete="off"> Giải Chơi Một Mình
+            </label> -->
+                    </div>
+
+                    <button id="draw-btn" class="btn btn-outline-dark mt-3">QUAY GIẢI!</button>
+                    <button type="button" class="btn btn-outline-dark mt-3" data-toggle="modal"
+                        data-target=".bd-example-modal-sm">
+                        ?
+                    </button>
+
+                    <div class="odometer" id="odometer"></div>
+
+                    <h4 class="mt-5">CONGRATULATION TO:</h4>
+
+                    <ul id="result" class="list-unstyled"></ul>
+                </div>
+
+                <div class="col-md-6">
+                    <!-- Add your firework animation here -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Tutorial</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group">
+                        <li class="list-group-item">S: Start/Stop</li>
+                        <li class="list-group-item">Space: Stop spinning 1 digit</li>
+                        <li class="list-group-item">1,2,3,4 or 5: Select prize type</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./scripts/odometer.js"></script>
+
+    <script src="./scripts/script.js"></script>
+    <script src="./scripts/firework.js"></script>
+
+    <script>
+        // Add your custom JavaScript code here
+    </script>
+</body>
+
+</html>

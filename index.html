@@ -86,7 +86,7 @@
         } */
 
 
-        header h1 {
+        /* header h1 {
             position: relative;
             padding: 0;
             margin: 0;
@@ -97,7 +97,7 @@
             -webkit-transition: all 0.4s ease 0s;
             -o-transition: all 0.4s ease 0s;
             transition: all 0.4s ease 0s;
-        }
+        } */
 
         header h1 span {
             display: block;
@@ -114,17 +114,6 @@
         .two h1 {
             text-transform: capitalize;
         }
-
-        header .two h1:before {
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 60px;
-            height: 2px;
-            content: "";
-            background-color: #c50000;
-        }
-
         header .two h1 span {
             font-size: 13px;
             font-weight: 500;
@@ -157,18 +146,25 @@
 <body style="background-color: #ecf0f1;">
     <div class="bg-dao"></div>
     <header class="pt-3 pb-2">
-        <div class="container text-center two alt-two pb-2">
-            <img style="position: absolute;left: 2rem;top: 0.5rem; height: 80px;" src="./resources/logo.png"
-                alt="logo-PPJ-new-slogan">
-            <h2>CHƯƠNG TRÌNH</h2>
-            <h1> BỐC THĂM TRÚNG THƯỞNG</h1>
-            <div class="khoi mt-3">KHỐI QUẢN TRị TÀI CHÍNH - KIỂM SOÁT RỦI RO</div>
+        <div class="container-fluid text-center two alt-two pb-2">
+            <div class="row">
+                <div class="col-3">
+                    <img style="position: absolute;left: 2rem;top: 0.5rem; height: 80px;" src="./resources/logo.png"
+                        alt="logo-PPJ-new-slogan">
+                </div>
+                <div class="col-9">
+                    <!-- <h2>CHƯƠNG TRÌNH BỐC THĂM TRÚNG THƯỞNG</h2> -->
+                    <h1>CHƯƠNG TRÌNH BỐC THĂM TRÚNG THƯỞNG</h1>
+                    <div class="khoi mt-3">KHỐI QUẢN TRị TÀI CHÍNH - KIỂM SOÁT RỦI RO</div>
+                </div>
+
+            </div>
             
         </div>
 
     </header>
     <main>
-        <div class="container">
+        <div class="container-fluid">
             <div class="mb-3 d-none">
                 <label for="rate-for-it" class="form-label">Percentage</label>
                 <input type="number" class="form-control" name="rate-for-it" id="rate-for-it"
@@ -197,7 +193,7 @@
                     </label> -->
                 </div>
             </div>
-            <div class="row mb-3 d-flex justify-content-center">
+            <!-- <div class="row mb-3 d-flex justify-content-center">
                 <button id="randomRewarded"
                 class="btn btn-success modal-active"
                 >
@@ -205,7 +201,7 @@
                     <div>QUAY GIẢI!</div>
                     
                 </button>
-            </div>
+            </div> -->
 
             <div class="d-flex justify-content-center mb-6">
                 <div id="odometer" class="odometer"></div>
@@ -218,17 +214,28 @@
                 <!-- <h4>CONGRATULATION TO:</h4> -->     
                 <div class="row mt-4 bg-info" id="result"></div>
             </div>
-        </div>
-        <div 
-            class="m-auto position-fixed"
-            style="bottom: 10px; right: 10px;"
-        >
-            <div>
-                <button type="button"
-                class="btn btn-outline-dark"
-                data-toggle="modal"
-                data-target=".bd-example-modal-sm">
-                ?
+            <div 
+                class="d-flex"
+                style="bottom: 10px; justify-content: end;
+                align-items: center;
+                position: fixed;
+                left: 1em;
+                "
+            >
+                <div class="d-flex">
+                    <button type="button"
+                    class="btn btn-outline-dark"
+                    data-toggle="modal"
+                    data-target=".bd-example-modal-sm">
+                    ?
+                    </button>
+                    <button type="button"
+                    data-toggle="modal"
+                    class="btn btn-outline-dark mx-2"
+                    data-target="#modal-phaohoa"
+                    id="phaohoaBtn"
+                    >
+                    Pháo hoa
                 </button>
                 <button type="button"
                 class="btn btn-outline-dark"
@@ -237,22 +244,33 @@
                 id="summary">
                 Kết quả cuối
                 </button>
-                <button type="button"
-                data-toggle="modal"
-                class="btn btn-outline-dark"
-                data-target="#modal-phaohoa"
-                id="phaohoaBtn"
-                >
-                Pháo hoa
-                </button>
+                </div>
+            </div>
+            <div 
+                class="d-flex"
+                style="bottom: 10px; right: 10px; justify-content: end;
+                align-items: center;
+                position: fixed;
+                right: 1em;
+                "
+            >
+                <div class="">
+                    <button id="randomRewarded"
+                    class="btn btn-success modal-active"
+                    >
+                        <i class="fa-regular fa-circle-dot d-block" style="font-size: 40px;"></i>
+                        <div class="" style="font-size: 10px;">QUAY GIẢI!</div>
+                        
+                    </button>
+                </div>
             </div>
         </div>
     </main>
     <div id="modal-container">
         <div class="js-container container modal-background" style="top:0px !important;">
             <div class="modal" id="bg-modal1">
-                <h3 id="modal-text">chúc mừng</h3>
-                <div class="row d-flex justify-content-between m-5">
+                <div id="modal-text">chúc mừng</div>
+                <div class="row d-flex justify-content-between m-3">
                     <div class="col-3 d-flex justify-content-between">
                         <img id="img-left" src="./resources/cat3.gif"
                             class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
@@ -308,7 +326,7 @@
                 <canvas id="canvas"></canvas>
             </div>
             <div class="modal-footer">
-                <button type="button" data-bs-dismiss="modal" class="btn btn-secondary" id="phaohoaBtnClose">Close</button>
+                <button type="button" data-bs-dismiss="modal" data-bs-target="#modal-phaohoa" aria-label="Close" class="btn btn-secondary" id="phaohoaBtnClose">Close</button>
             </div>
         </div>
     </div>

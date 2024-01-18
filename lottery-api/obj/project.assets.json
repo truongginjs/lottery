@@ -465,11 +465,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/itppj/Projects/lottery/lottery/lottery-api/lottery-api.csproj",
+      "projectUniqueName": "/Users/itppj/Projects/lottery/lotex/ramdomRewar/lottery-api/lottery-api.csproj",
       "projectName": "lottery-api",
-      "projectPath": "/Users/itppj/Projects/lottery/lottery/lottery-api/lottery-api.csproj",
+      "projectPath": "/Users/itppj/Projects/lottery/lotex/ramdomRewar/lottery-api/lottery-api.csproj",
       "packagesPath": "/Users/itppj/.nuget/packages/",
-      "outputPath": "/Users/itppj/Projects/lottery/lottery/lottery-api/obj/",
+      "outputPath": "/Users/itppj/Projects/lottery/lotex/ramdomRewar/lottery-api/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/itppj/.nuget/NuGet/NuGet.Config"

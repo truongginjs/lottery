@@ -1,6 +1,7 @@
 body {
     background-image: url(../images/Bg1.png) !important;
-    background-repeat: repeat-y;
+    background: fixed;
+    background-repeat: round;
 }
 body .bg-dao {
     background-image: url(../images/dao.png) !important;
@@ -14,9 +15,9 @@ body .bg-dao {
     background-size: cover;
 }
 header div h1, h2 {
-    position: relative;
-    padding: 0;
-    margin: 0;
+    /* position: relative; */
+    /* padding: 0;
+    margin: 0; */
     font-family: "Raleway", sans-serif;
     font-weight: 700;
     font-size: 50px;
@@ -54,6 +55,14 @@ header div .khoi {
     background-size: cover !important;
 }
 
+#modal-text div {
+    font-size: 3rem;
+    margin-top: 0;
+    color: #faf200;
+    text-shadow: #e1dc52 3px 0 20px;
+    font-weight: 700;
+}
+
 /* #modal-container .modal:before {
     content: "";
     position: absolute;
@@ -88,6 +97,70 @@ header div .khoi {
     margin-bottom: 2rem;
 }
 
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all 0.5s;
+    position: absolute;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white::after {
+    background-color: #fff;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    animation: moveInBottom 5s ease-out;
+    animation-fill-mode: backwards;
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
 #modal-container .img-fluid {
     object-fit: fill;
     margin-bottom: 1rem;

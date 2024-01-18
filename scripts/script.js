@@ -1,6 +1,6 @@
 const path = "./resources/data.json";
 var audio = new Audio("./resources/music.mp3");
-var audiospin = new Audio("./resources/spin.mp3");
+var audiospin = new Audio("./resources/spin-n.mp3");
 var audio2000 = new Audio("./resources/2000.mp3");
 var audiohuu = new Audio("./resources/huu.mp3");
 
@@ -17,7 +17,7 @@ const REWARD = [
   { message: "GIẢI NHÌ", count: 0, rewardedMenberList: [] },
   { message: "GIẢI NHẤT", count: 0, rewardedMenberList: [] },
   { message: "GIẢI ĐẶC BIỆT", count: 0, rewardedMenberList: [], spec: true },
-//   { message: "GIẢI CHƠI MỘT MÌNH", count: 0, rewardedMenberList: [] },
+  //   { message: "GIẢI CHƠI MỘT MÌNH", count: 0, rewardedMenberList: [] },
 ];
 let indexReward = 0;
 
@@ -84,10 +84,10 @@ const selectRandomMember = async (
 
   const itMenbersArray =
     id == "0"
-      ? candidates.filter((c) => c.Department === department)
+      ? candidates.filter((c) => c.department === department)
       : candidates.filter((value) => {
-          return value.ID == id;
-        });
+        return value.id == id;
+      });
 
   const menbersInDept = itMenbersArray.length;
 
@@ -103,7 +103,7 @@ const selectRandomMember = async (
   const numOfMenbersInDept = totalMenbers - menbersInDept;
 
   const NonDeptMenbersArray = candidates.filter(
-    (c) => c.Department !== department
+    (c) => c.department !== department
   );
 
   const nonITMenbersIndex = Math.floor(Math.random() * numOfMenbersInDept);
@@ -121,24 +121,23 @@ const selectRandomMember = async (
 
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 const renderReward = () => {
-    resultName.innerHTML = `<div class="col d-flex justify-content-center align-items-center font-weight-bold" style="color: red; font-size: 24px">${REWARD[indexReward].message}</div>`;
-    resultListElement.innerHTML = "";
-    REWARD[indexReward].rewardedMenberList.forEach((item, index) => {
-      const listItem = document.createElement("li");
-      listItem.className =
-        "d-flex justify-content-start align-items-center text-white";
-      listItem.style.fontSize = "20px";
-      listItem.textContent = `${index + 1}) ${item.Name} - ${item.ID} - ${
-        item.Department
-      }`;
-      const listItemWrapper = document.createElement("ul");
-      listItemWrapper.className = "col-6";
-      listItemWrapper.appendChild(listItem);
-      resultListElement.appendChild(listItemWrapper);
-    });
+  resultName.innerHTML = `<div class="col d-flex justify-content-center align-items-center font-weight-bold" style="color: red; font-size: 24px">${REWARD[indexReward].message}</div>`;
+  resultListElement.innerHTML = "";
+  REWARD[indexReward].rewardedMenberList.forEach((item, index) => {
+    const listItem = document.createElement("li");
+    listItem.className =
+      "d-flex justify-content-start align-items-center text-white";
+    listItem.style.fontSize = "20px";
+    listItem.textContent = `${index + 1}) ${item.name} - ${item.id} - ${item.department}`;
+    const listItemWrapper = document.createElement("ul");
+    listItemWrapper.className = "col-6 mb-0";
+    listItemWrapper.appendChild(listItem);
+    resultListElement.appendChild(listItemWrapper);
+  });
 }
 
 let loop = false;
+let isspin = false;
 let spinNum = null;
 let trueNum = null;
 const resultListElement = document.getElementById("result");
@@ -152,11 +151,15 @@ $(document).ready(function () {
     const code = e.code;
     console.log(code, loop)
     if (code == "KeyS") {
-      e.preventDefault();   
-      if (!loop) randomRewarded.click()
+      e.preventDefault();
+      if (!loop) {
+        if (isspin)
+          console.log("SPAM");
+        else
+          randomRewarded.click()
+      }
       else {
         loop = false;
-        randomRewarded.className = 'btn btn-success'
       }
     }
 
@@ -167,11 +170,10 @@ $(document).ready(function () {
       for (let i = 0; i < spinNum.length; i++) {
         const v = spinNum[i];
         if (v < 0) {
-            
-            spinNum[i] = trueNum[i];
-            break;
+
+          spinNum[i] = trueNum[i];
+          break;
         }
-        if(spinNum[5] == 0 )  randomRewarded.className = 'btn btn-success'
       }
     }
 
@@ -189,6 +191,9 @@ $(document).ready(function () {
     $("body").removeClass("modal-active");
     fade();
     stopConfetti();
+    isspin = false
+    randomRewarded.className = 'btn btn-success'
+
   });
 
   $("#option-reward input").click(function () {
@@ -203,21 +208,21 @@ $(document).ready(function () {
 
   $("#randomRewarded").click(async function () {
     randomRewarded.className = 'btn btn-danger'
-    console.log(loop)
+
     if (loop) {
       loop = false;
-        randomRewarded.className = 'btn btn-success'
       return;
     }
     audiospin.volume = 1;
     audiospin.currentTime = 0;
     audiospin.play();
+    isspin = true;
 
     const selectedMenber = await selectRandomMember(
       members,
       rewardedMenberList
     );
-    const num = selectedMenber.ID.replace(/[A-Za-z]+/, "");
+    const num = selectedMenber.id.replace(/[A-Za-z]+/, "");
     trueNum = [...num.toString().padStart(7, "0")];
     trueNum.sort();
     spinNum = trueNum.map((x) => -1);
@@ -246,7 +251,7 @@ $(document).ready(function () {
 
   async function loopSpinning() {
     loop = true;
-    let num1 = 0;
+    let num1 = 1;
     let num2 = 5;
     let num3 = 9;
 
@@ -270,15 +275,20 @@ $(document).ready(function () {
     renderReward();
     console.log(REWARD);
 
-    $("#modal-text").html(
-      `Congratulations to ${selectedMenber.Name} - ${selectedMenber.ID} - ${selectedMenber.Department}!`
-    );
+    // $("#modal-text").html(
+    //   `Congratulations to ${selectedMenber.name} - ${selectedMenber.id} - ${selectedMenber.department}!`
+    // );
+    document.getElementById('modal-text').innerHTML = `
+    <h3>Congratulations</h3>
+    <div>${selectedMenber.name} - ${selectedMenber.id}</div>
+    <h3>${selectedMenber.department}</h3>
+    `
     $("#modal-p").html(`${REWARD[indexReward].message}`);
 
     const numImg = Math.floor(Math.random() * 5) + 1;
 
-    const l = selectedMenber.Avatar
-      ? `./images/${selectedMenber.Avatar}`
+    const l = selectedMenber.avatar
+      ? `./images/${selectedMenber.avatar}`
       : `./resources/dog${numImg}.gif`;
     $("#avatar").attr("src", l);
     $("#img-left").attr("src", `./resources/cat${numImg}.gif`);
@@ -295,6 +305,24 @@ $(document).ready(function () {
 
 const execute = async () => {
   members = await getMembers(path);
+
+  //   var t = `111125.jpeg	120960.jpg	43455.jpg	8010678.jpg	92982.jpg
+  // 111125.jpg	120980.jpg	44690.jpeg	8013888.jpg	93040.jpg
+  // 111127.png	121246.jpg	44708.jpg	8019035.jpg	VCB01.jpg
+  // 114671.jpg	121487.jpg	45425.jpg	8023775.jpg	VCB02.jpg
+  // 117499.jpg	121488.JPEG	45544.jpg	8023850.jpg	VCB03.jpg
+  // 117934.jpg	121488.png	46798.jpg	8024701.jpg	VCB04.jpg
+  // 118478.jpg	122077.jpg	73657.jpg	81006.jpg	VCB05.jpg
+  // 118478.png	40174.jpg	8008489.jpg	81935.jpg	VCB06.jpg
+  // 119102.jpg	40720.jpg	8008913.jpg	85354.jpg	VCB07.jpg
+  // 120700.jpg	41179.jpg	8009259.jpg	86254.jpg
+  // `
+  //   members2 = await getMembers('./resources/data2.json')
+  //   var tt = t.split(/\t|\n/).map(x => ({ id: x.split('.')[0], path: x }))
+
+
+  //   members2 = members2.map(x => ({ ...x, avatar: members.filter(m=>m.id==x.id)[0]?.Avatar || tt.filter(t => t.id == x.id)[0]?.path }))
+  //   console.log(JSON.stringify(members2))
 };
 
 execute();
@@ -303,23 +331,23 @@ const summaryButton = document.getElementById("summary");
 const modalTableResult = document.getElementById("bd-example-modal-result-sm")
 if (summaryButton) {
   summaryButton.addEventListener("click", () => {
-      const rewardedRows = (listPer) => listPer.map((per, index) => {
-          return (
-              `<tr>
+    const rewardedRows = (listPer) => listPer.map((per, index) => {
+      return (
+        `<tr>
                   <th scope="row">${index + 1}</th>
-                  <td>${per.Name}</td>
-                  <td>${per.ID}</td>
-                  <td>${per.Department}</td>
+                  <td>${per.name}</td>
+                  <td>${per.id}</td>
+                  <td>${per.department}</td>
               </tr>`
-          );
-      });
-    const contentModal =  REWARD.map((item, index) => {
-        return (`<tr class = "${item.spec ? "bg-danger" : "bg-info"} text-light ">
+      );
+    });
+    const contentModal = REWARD.map((item, index) => {
+      return (`<tr class = "${item.spec ? "bg-danger" : "bg-info"} text-light ">
                     <th colspan="4">${item.message}</th>
                 </tr>
                 ${rewardedRows(item.rewardedMenberList).join('')}
             `
-        )
+      )
     });
     modalTableResult.innerHTML = `
         <div class="modal-dialog modal-xl">
@@ -348,6 +376,9 @@ if (summaryButton) {
             </div>
         </div>
     `
-    
+
   });
 }
+
+
+
