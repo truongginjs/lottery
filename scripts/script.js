@@ -143,6 +143,8 @@ let trueNum = null;
 const resultListElement = document.getElementById("result");
 const randomRewarded = document.getElementById("randomRewarded");
 const resultName = document.getElementById("resultName");
+const modalResult = document.getElementById("modal-container");
+
 
 $(document).ready(function () {
   const rateEle = $("#rate-for-it");
@@ -176,7 +178,9 @@ $(document).ready(function () {
         }
       }
     }
-
+    if (code == 'Escape') {
+      modalResult.click()
+    }
     if (code.startsWith("Digit")) {
       e.preventDefault();
       const k = parseInt(code.slice(-1));
@@ -213,6 +217,10 @@ $(document).ready(function () {
       loop = false;
       return;
     }
+    if (isspin) {
+      return
+    }
+
     audiospin.volume = 1;
     audiospin.currentTime = 0;
     audiospin.play();
