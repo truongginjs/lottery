@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sd5a504ol3qmsUncyyNwS8Hb/3wVnHX1XrPJGK+gOpOzCtiN5qADswHlr15mSi0rDv6a2KUd/behXrWtK7FcfQ==",
+  "dgSpecHash": "Yug6KFa8wl2ZB2jA9CKkvStMbRGYfj2ynibSwA/pY6hpbci/Sle952bOD5FX1rI7HXLcenakMT+uYcFOCYKp1g==",
   "success": true,
-  "projectFilePath": "/Users/itppj/Projects/lottery/lotex/ramdomRewar/lottery-api/lottery-api.csproj",
+  "projectFilePath": "/Users/itppj/Projects/lottery/lotex/lottery/lottery-api/lottery-api.csproj",
   "expectedPackageFiles": [
     "/Users/itppj/.nuget/packages/microsoft.aspnetcore.openapi/8.0.0/microsoft.aspnetcore.openapi.8.0.0.nupkg.sha512",
     "/Users/itppj/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

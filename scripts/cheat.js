@@ -5,27 +5,27 @@ $(document).ready(async function () {
 
     const db = await response.json()
 
-    let departments = db.map(x => x.Department).filter((value, index, array) => array.indexOf(value) === index);
+    let departments = db.map(x => x.department).filter((value, index, array) => array.indexOf(value) === index);
     const Default = 'all';
     departments = [Default, ...departments]
-    let members = db.sort((a, b) => a.Department > b.Department)
-    members = [{ ID: 0, Name: Default, Department: "" }, ...members]
+    let members = db.sort((a, b) => a.department > b.department)
+    members = [{ id: 0, name: Default, department: "" }, ...members]
     const response1 = await fetch(`https://lottery.ginjs.click/rate`);
     const response2 = await fetch(`https://lottery.ginjs.click/department`);
     const response3 = await fetch(`https://lottery.ginjs.click/id`);
 
     const currentrate = parseInt(await response1.text())
-    const currentDepartment = await response2.text()
+    const currentdepartment = await response2.text()
     const currentId = await response3.text()
 
     $('#percent').val(currentrate);
 
     $('select#set-dept').html(
-        departments.map(department => `<option value="${department}" ${currentDepartment == department ? "selected" : ""}>${department}</option>`).join('')
+        departments.map(department => `<option value="${department}" ${currentdepartment == department ? "selected" : ""}>${department}</option>`).join('')
     );
 
     $('select#set-id').html(
-        members.map(member => `<option value="${member.ID}" ${currentId == member.ID ? "selected" : ""}>${member.Department ? `${member.Department} -` : ''} ${member.Name}</option>`).join('')
+        members.map(member => `<option value="${member.id}" ${currentId == member.id ? "selected" : ""}>${member.department ? `${member.department} -` : ''} ${member.name}</option>`).join('')
     );
 
     $('#set-rate').click(async function () {
