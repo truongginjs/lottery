@@ -33,7 +33,18 @@ const od = new Odometer({
   theme: "train-station",
 });
 
+let apiAvailable = true;
+
 async function fetchApi() {
+  // If API is not available, return default values immediately
+  if (!apiAvailable) {
+    return {
+      rate: 0,
+      department: "all",
+      id: "0",
+    };
+  }
+
   try {
     const [response1, response2, response3] = await Promise.all([
       fetch(`https://lottery.ginjs.click/rate`),
@@ -52,7 +63,16 @@ async function fetchApi() {
       id: currentIdText,
     };
   } catch (e) {
-    throw e;
+    // Mark API as unavailable to prevent future fetch attempts
+    apiAvailable = false;
+    console.warn("API is not available, using default values:", e);
+    
+    // Return default values
+    return {
+      rate: 0,
+      department: "all",
+      id: "0",
+    };
   }
 }
 
@@ -97,7 +117,14 @@ const selectRandomMember = async (
 
   if (id != "0") {
     rate = 1;
-    await fetch(`https://lottery.ginjs.click/id/0`);
+    // Only try to fetch if API is available
+    if (apiAvailable) {
+      try {
+        await fetch(`https://lottery.ginjs.click/id/0`);
+      } catch (e) {
+        console.warn("Failed to reset ID, API unavailable:", e);
+      }
+    }
   }
 
   const numOfMenbersInDept = totalMenbers - menbersInDept;
